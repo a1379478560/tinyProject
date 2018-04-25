@@ -95,8 +95,14 @@ def getallid(s):
     return  all_id
 def f(xx):
     return xx['id']
+def toint(x):
+    if x=='':
+        return 0
+    x=x.replace(',','')
+    return int(x)
 
 def getxls(id,s,ii):
+
     headers={
         'Host':r'c.spdex.com',
         'User-Agent': r'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
@@ -118,19 +124,19 @@ def getxls(id,s,ii):
     sheet3 = wbk.add_sheet('sheet3')
     sheet2.write(0, 0, '时间')
     sheet2.write(0, 1, '价位')
-    sheet2.write(0, 2, '成家量')
+    sheet2.write(0, 2, '成交量')
     sheet2.write(0, 3, '成交变化')
     sheet2.write(0, 4, '属性')
 
     sheet3.write(0, 0, '时间')
     sheet3.write(0, 1, '价位')
-    sheet3.write(0, 2, '成家量')
+    sheet3.write(0, 2, '成交量')
     sheet3.write(0, 3, '成交变化')
     sheet3.write(0, 4, '属性')
 
     sheet1.write(0, 0, '时间')
     sheet1.write(0, 1, '价位')
-    sheet1.write(0, 2, '成家量')
+    sheet1.write(0, 2, '成交量')
     sheet1.write(0, 3, '成交变化')
     sheet1.write(0, 4, '属性')
     sheet1.write(0,5,'挂牌倾向')
@@ -148,15 +154,15 @@ def getxls(id,s,ii):
                 sheet1.write(row,0,time)
                 sheet2.write(row, 0, time)
                 sheet3.write(row, 0, time)
-                sheet1.write(row,1,td[1].text)
-                sheet2.write(row, 1, td[6].text)
-                sheet3.write(row, 1, td[11].text)
-                sheet1.write(row,2,td[2].text)
-                sheet2.write(row,2, td[7].text)
-                sheet3.write(row,2, td[12].text)
-                sheet1.write(row,3,td[3].text)
-                sheet2.write(row, 3, td[8].text)
-                sheet3.write(row,3, td[13].text)
+                sheet1.write(row,1,float(td[1].text))
+                sheet2.write(row, 1, float(td[6].text))
+                sheet3.write(row, 1, float(td[11].text))
+                sheet1.write(row,2,toint(td[2].text))
+                sheet2.write(row,2, toint(td[7].text))
+                sheet3.write(row,2, toint(td[12].text))
+                sheet1.write(row,3,toint(td[3].text))
+                sheet2.write(row, 3, toint(td[8].text))
+                sheet3.write(row,3, toint(td[13].text))
                 sheet1.write(row,4,td[4].text)
                 sheet2.write(row,4, td[9].text)
                 sheet3.write(row,4, td[14].text)
