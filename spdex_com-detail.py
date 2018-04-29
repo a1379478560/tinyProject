@@ -144,12 +144,9 @@ def getxls(id,s,ii):
     row2=1
     for i in range(1,n+1):
         r=s.get(url+id+'/?page='+str(i))
-        id=id[:43]+'3'
-        soup=BeautifulSoup(r.text,'html.parser')
-        tr=soup.find_all('tr',{'class': False})
-        r2 = s.get(url + id + '/?page=' + str(i))
-        soup2 = BeautifulSoup(r2.text, 'html.parser')
-        tr2 = soup2.find_all('tr', {'class': False})
+        soup = BeautifulSoup(r.text, 'html.parser')
+        tr = soup.find_all('tr', {'class': False})
+        print(r.url)
         for x in tr:
             td=x.find_all('td')
             if len(td)==18 :
@@ -159,6 +156,11 @@ def getxls(id,s,ii):
                 sheet1.write(row,3,toint(td[3].text))
                 sheet1.write(row, 4, td[4].text)
                 row=row+1
+        id2=id[:43]+'2'
+        r2 = s.get(url + id2 + '/?page=' + str(i))
+        soup2 = BeautifulSoup(r2.text, 'html.parser')
+        tr2 = soup2.find_all('tr', {'class': False})
+        print(r2.url)
         for x in tr2:
             td=x.find_all('td')
             if len(td)==18 :
