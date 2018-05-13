@@ -35,9 +35,10 @@ def getappdata(path,cat_name,max_page=1):
                 package_name=div.find('a')['href'].split('/')[-1]
                 item={
                     "id":id,
-                    "appName":name,
+                    "appName":'',
                     "packageName":package_name,
-                    "classType":cat_name[0]
+                    #"classType":cat_name[0]
+                    "classType":path.split('/')[-1]
                 }
 
                 id=id+1
