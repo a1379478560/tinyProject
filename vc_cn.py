@@ -43,7 +43,9 @@ def getContent(url,world,page):
             tag=temp[1].text+'-'+temp[2].text
         except:
             tag=temp[1].text
-        item=(name,addr,tag)
+        li=com.find_all('li')[-1]
+        info=li.find('span').text.split('：')[-1]
+        item=(name,addr,tag,info)
         data.append(item)
     print('第%s页完成！'% page)
     return data
@@ -54,13 +56,14 @@ def write(datalist):
     sheet = book.add_sheet(u'鲸准关键词搜索结果', cell_overwrite_ok=True)
     # 写入excel
     # 参数对应 行, 列, 值
-    col = ['名称', '地址','标签']
+    col = ['名称', '地址','标签','基本信息']
     sheet.write(0, 0, col[0], set_style('Times New Roman', 220, True))  # 插入表头并使用样式加黑
     sheet.write(0, 1, col[1], set_style('Times New Roman', 220, True))  # 插入表头并使用样式加黑
     sheet.write(0, 2, col[2], set_style('Times New Roman', 220, True))  # 插入表头并使用样式加黑
+    sheet.write(0, 3, col[3], set_style('Times New Roman', 220, True))  # 插入表头并使用样式加黑
     for i in range(1,len(datalist)+1):
         item = datalist[i-1]
-        for j in range(3):
+        for j in range(4):
             sheet.write(i, j, item[j])  # 数据
     book.save('result.xls')  # 保存
 
