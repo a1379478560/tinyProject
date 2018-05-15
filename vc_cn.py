@@ -35,7 +35,7 @@ def getContent(url,world,page):
     soup=BeautifulSoup(text,'html.parser')
     companys=soup.find_all('div',{'class':'company'})
     for com in companys:
-        print(com)
+        #print(com)
         name=com.find('a')['title']
         temp=com.find_all('a',{'data-remote':'true'})
         addr=temp[0].text
@@ -45,6 +45,7 @@ def getContent(url,world,page):
             tag=temp[1].text
         item=(name,addr,tag)
         data.append(item)
+    print('第%s页完成！'% page)
     return data
 def write(datalist):
     # 创建一个workbook 设置编码
