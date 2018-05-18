@@ -55,12 +55,13 @@ def syn():
         if not file in file_list:
             try:
                 copy(file)
-                file_list=file_now
-            except:
-                lb_flag['text']='请检查文件夹是否存在！！！'
-                lb_flag['bg']='red'
-def copy(file):
 
+            except:
+                lb_flag['text']='目录有错误！'
+                lb_flag['bg']='red'
+        #file_list=file_now
+def copy(file):
+    file_list.append(file)
     for path in to_file:
         shutil.copyfile(os.path.join(src_file,file),os.path.join(path,file))
 root = Tk(className='文件分发工具-QQ619400536')
