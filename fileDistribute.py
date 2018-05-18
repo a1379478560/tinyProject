@@ -43,7 +43,7 @@ def loop():
     while(flag):
         #print(flag)
         do_check()
-        time.sleep(2)
+        time.sleep(1)
 def do_check():
     if file_list!=os.listdir(src_file):
         syn()
