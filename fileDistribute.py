@@ -66,7 +66,7 @@ def copy(file):
         shutil.copyfile(os.path.join(src_file,file),os.path.join(path,file))
 root = Tk(className='文件分发工具-QQ619400536')
 root.geometry('450x450')
-
+root.resizable(0,0)
 lb_src=Label(root,text='源目录：'+src_file,anchor='w')
 lb_src.place(x=20,y=20,width=320,height=20)
 
