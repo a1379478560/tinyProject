@@ -5,30 +5,59 @@ import time
 import threading
 import shutil
 flag=0
-src_file=r'C:\Users\sheldon\Desktop\0'
-to_file=[r'C:\Users\sheldon\Desktop\1', r'C:\Users\sheldon\Desktop\2', r'C:\Users\sheldon\Desktop\3']
+src_file=r''
+to_file=[]
 file_list=[]
 file_now=[]
+def readini():
+
+    try:
+        with open('fd.ini','r') as f:
+            global src_file
+            global to_file
+            src_file=f.readline().split('=')[-1][:-1]
+            to_file=f.readline().split('=|')[-1].split('|')
+
+            if to_file[-1][-1]=='\n':
+                to_file[-1]=to_file[-1][:-1]
+    except:
+        pass
+def saveini():
+    try:
+        with open('fd.ini','w+') as f:
+            f.write('src_file=')
+            f.write(src_file+'\n')
+            f.write('to_file=')
+            for x in to_file:
+                f.write('|'+x)
+    except:
+        pass
 def fun_select():
     global src_file
     src_file = askdirectory()
     lb_src['text']='源目录：'+src_file
 def add_to_file():
+
     to_file.append(askdirectory())
     lb.delete(0,END)
     for file in to_file:
         lb.insert(END,file)
+    saveini()
 
 def del_to_file():
+
     to_file.remove(lb.get(lb.curselection()))
     lb.delete(lb.curselection())
+    saveini()
 
 def stop():
+    saveini()
     lb_flag['text'] = '监控已停止'
     lb_flag['bg']='red'
     global flag
     flag=0
 def startx():
+    saveini()
     global file_list
     file_list=os.listdir(src_file)
     #print(file_list)
@@ -64,6 +93,9 @@ def copy(file):
     file_list.append(file)
     for path in to_file:
         shutil.copyfile(os.path.join(src_file,file),os.path.join(path,file))
+
+
+readini()
 root = Tk(className='文件分发工具-QQ619400536')
 root.geometry('450x450')
 root.resizable(0,0)
