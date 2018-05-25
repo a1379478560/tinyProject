@@ -1,3 +1,20 @@
+
+#mysql存储方式需要先执行下面 sql语句来创建数据库  或者直接导入本项目根目录的zhilian.sql
+
+
+# CREATE DATABASE `zhilian` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+# CREATE TABLE `zhilian_pos` (
+#   `id` int(11) NOT NULL AUTO_INCREMENT,
+#   `pos_name` char(128) DEFAULT NULL,
+#   `com_name` char(128) DEFAULT NULL,
+#   `fk_lv` char(16) DEFAULT NULL,
+#   `salary` char(32) DEFAULT NULL,
+#   `update_time` char(32) DEFAULT NULL,
+#   `site` char(128) DEFAULT NULL,
+#   PRIMARY KEY (`id`)
+# ) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8;
+
+
 import os
 import xlwt
 import pymysql
@@ -31,6 +48,37 @@ def save_text(path,filename,data):
             row = x[0].ljust(30) + x[1].ljust(35) + x[2].ljust(8) + x[3].ljust(10) + x[4].ljust(5) + x[5].ljust(5)+'\n'
             #row = '%-35s%-45s%-10s%-15s%-10s%-8s\n' % (x[0], x[1], x[2],x[3],x[4],x[5])
             f.write(row)
+# def connectdb(host,user,passwd,dbname):
+#     try:
+#         #db=pymysql.connect('140.143.143.164','ferris','123456','launcher')
+#         db = pymysql.connect(host, user, passwd, dbname)
+#         cursor=db.cursor()
+#         print('数据库连接成功！')
+#         cursor.execute('SELECT VERSION()')
+#     except:
+#         print('数据库连接失败，请检查')
+#     return db
 
-def save_mysql():
-    pass
+def save_mysql(host,user,passwd,dbname,data):
+    try:
+        db = pymysql.connect(host, user, passwd, dbname,use_unicode=True, charset="utf8")
+        cursor=db.cursor()
+        print('数据库连接成功！')
+        cursor.execute('SELECT VERSION()')
+    except:
+        print('数据库连接失败，请检查')
+        return  0
+    cursor=db.cursor()
+    print('正在插入数据！')
+    for item in data:
+        sql='INSERT INTO zhilian_pos(pos_name, com_name,salary,site,fk_lv,update_time) VALUES("%s", "%s","%s","%s","%s","%s");' %(item[0],item[1],item[2],item[3],item[4],item[5])
+        try:
+            cursor.execute(sql)
+            db.commit()
+        except pymysql.err.IntegrityError:
+            print('重复数据')
+            db.rollback()
+        except:
+            raise
+            print('插入失败')
+            db.rollback()
