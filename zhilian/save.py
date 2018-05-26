@@ -18,8 +18,11 @@
 import os
 import xlwt
 import pymysql
+
+#import zhilian.zhilian_com
 def save_xls(path,filename,data):
     filename+='.xls'
+    #zhilian.zhilian_com.addlog('保存文件到%s'% os.path.join(path,filename))
     wbk = xlwt.Workbook(encoding='ascii')
     sheet1 = wbk.add_sheet('智联招聘数据')
     sheet1.write(0,0,'职位名称')
@@ -40,7 +43,7 @@ def save_xls(path,filename,data):
     wbk.save( os.path.join(path,filename))
 def save_text(path,filename,data):
     filename+='.txt'
-    with open(os.path.join(path,filename),'w') as f:
+    with open(os.path.join(path,filename),'w',encoding='utf-8') as f:
         #row = '%-35s%-45s%-10s%-15s%-10s%-8s\n' % ('职位名称', '公司名称', '月薪', '上班地点', '反馈率', '更新时间')
         row='职位名称'.ljust(30)+'公司名称'.ljust(35)+'月薪'.ljust(8)+'上班地点'.ljust(10)+'反馈率'.ljust(5)+'更新时间'.ljust(5)+'\n'
         f.write(row)
@@ -48,18 +51,9 @@ def save_text(path,filename,data):
             row = x[0].ljust(30) + x[1].ljust(35) + x[2].ljust(8) + x[3].ljust(10) + x[4].ljust(5) + x[5].ljust(5)+'\n'
             #row = '%-35s%-45s%-10s%-15s%-10s%-8s\n' % (x[0], x[1], x[2],x[3],x[4],x[5])
             f.write(row)
-# def connectdb(host,user,passwd,dbname):
-#     try:
-#         #db=pymysql.connect('140.143.143.164','ferris','123456','launcher')
-#         db = pymysql.connect(host, user, passwd, dbname)
-#         cursor=db.cursor()
-#         print('数据库连接成功！')
-#         cursor.execute('SELECT VERSION()')
-#     except:
-#         print('数据库连接失败，请检查')
-#     return db
 
 def save_mysql(host,user,passwd,dbname,data):
+    print(host, user, passwd, dbname)
     try:
         db = pymysql.connect(host, user, passwd, dbname,use_unicode=True, charset="utf8")
         cursor=db.cursor()
@@ -82,3 +76,4 @@ def save_mysql(host,user,passwd,dbname,data):
             raise
             print('插入失败')
             db.rollback()
+    return 1

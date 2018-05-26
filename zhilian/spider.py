@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+from zhilian.zhilian_com import STATUS,POSITION,addlog,I
 def getonepagedata(city,kw,page,):
     position=[]
     headers = {
@@ -41,12 +41,4 @@ def getonepagedata(city,kw,page,):
         position.append(item)
     return position,pos_num.text
 
-def getalldata(city,kw,pages):
-    position_all=[]
-    for i in range(1,pages+1):
-        position,pos_num=getonepagedata(city,kw,i)
-        position_all+=position
-        print(pos_num)
-        if i >=int(pos_num)//60+1:
-            break
-    return position_all,i  #i是实际爬取的页数，因为输入的页数可能大于实际有的页数
+
