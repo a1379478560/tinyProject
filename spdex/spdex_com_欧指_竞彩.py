@@ -2,18 +2,18 @@ import requests
 import  xlwt
 from  bs4 import BeautifulSoup
 import os
-def get_token():
-    params={
-        'client_id': 'ejS0TzdTjGaKUMqNSlA23PTb',
-        'client_secret': 'idp2MPKhWb0ttiTrd7GvEnTYwVteDMmR',
-        'grant_type': 'client_credentials'
-    }
-    token_url=r'https://aip.baidubce.com/oauth/2.0/token'
-    headers={
-        'Content-Type': 'application/json; charset=UTF-8',
-    }
-    r=requests.get(token_url, headers=headers, params=params)
-    return r.json()['access_token']
+# def get_token():
+#     params={
+#         'client_id': 'ejS0TzdTjGaKUMqNSlA23PTb',
+#         'client_secret': 'idp2MPKhWb0ttiTrd7GvEnTYwVteDMmR',
+#         'grant_type': 'client_credentials'
+#     }
+#     token_url=r'https://aip.baidubce.com/oauth/2.0/token'
+#     headers={
+#         'Content-Type': 'application/json; charset=UTF-8',
+#     }
+#     r=requests.get(token_url, headers=headers, params=params)
+#     return r.json()['access_token']
 
 def get_ocr(token,s):
     url='https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic'
@@ -69,13 +69,8 @@ def login():
         print('登录失败，请重试！')
         print(soup.find('span', id='ContentPlaceHolder1_Lab1'))
         s=login()
-    #print(r.text)
     print(r.status_code)
-    #print(r.url)
     return s
-#token=get_token()
-#ocr=get_ocr(token)
-
 def getallid(s):
     all_id=[]
     headers={
@@ -111,28 +106,21 @@ def toint(x):
     x=x.replace(',','')
     return int(x)
 
-def getxls(id,s,ii):
+def getxls(id,s):
 
     headers={
         'Host':r'c.spdex.com',
         'User-Agent': r'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
     }
     url=r'http://c.spdex.com'
-    #r=s.get(url+id,headers=headers)
-    #soup=BeautifulSoup(r.text,'html.parser')
-    #print(soup.find('title'))
-    # try:
-    #     n=soup.find('td',{'valign': 'bottom','nowrap': 'true',}).text[8:10]
-    # except:
-    #     print('这个没有数据')
-    #     return
-    # n=int(n)
-    # print(n,'页','ok')
+
     wbk = xlwt.Workbook(encoding='ascii')
     sheet1 = wbk.add_sheet('sheet1')
     row=0
     r=s.get(url+id,headers=headers)
     soup=BeautifulSoup(r.text,'html.parser')
+    name=soup.find('h4').text
+    name=name.replace(' ','')
     tr=soup.find_all('tr',{'class': False})
     for x in tr:
         td=x.find_all('td')
@@ -141,7 +129,7 @@ def getxls(id,s,ii):
             for col in range(1,18):
                 sheet1.write(row,col,float(td[col].text))
             row=row+1
-    wbk.save(r'spdex_com_ou_jingcai/'+str(ii)+'.xls')
+    wbk.save(r'spdex_com_ou_jingcai/'+name+'.xls')
 
 if __name__=='__main__':
     s=login()
@@ -151,7 +139,7 @@ if __name__=='__main__':
     if not os.path.exists('spdex_com_ou_jingcai'):
         os.mkdir('spdex_com_ou_jingcai')
         print('创建spdex_文件夹')
-    ii = 1  # 后面做文件名
+    #ii = 1  # 后面做文件名
     for a in range(len(all_id)):
-        getxls(all_id[a],s,ii)
-        ii=ii+1
+        getxls(all_id[a],s)
+        #ii=ii+1

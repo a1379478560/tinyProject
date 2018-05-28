@@ -2,18 +2,18 @@ import requests
 import  xlwt
 from  bs4 import BeautifulSoup
 import os
-def get_token():
-    params={
-        'client_id': 'ejS0TzdTjGaKUMqNSlA23PTb',
-        'client_secret': 'idp2MPKhWb0ttiTrd7GvEnTYwVteDMmR',
-        'grant_type': 'client_credentials'
-    }
-    token_url=r'https://aip.baidubce.com/oauth/2.0/token'
-    headers={
-        'Content-Type': 'application/json; charset=UTF-8',
-    }
-    r=requests.get(token_url, headers=headers, params=params)
-    return r.json()['access_token']
+# def get_token():
+#     params={
+#         'client_id': 'ejS0TzdTjGaKUMqNSlA23PTb',
+#         'client_secret': 'idp2MPKhWb0ttiTrd7GvEnTYwVteDMmR',
+#         'grant_type': 'client_credentials'
+#     }
+#     token_url=r'https://aip.baidubce.com/oauth/2.0/token'
+#     headers={
+#         'Content-Type': 'application/json; charset=UTF-8',
+#     }
+#     r=requests.get(token_url, headers=headers, params=params)
+#     return r.json()['access_token']
 
 def get_ocr(token,s):
     url='https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic'
@@ -69,12 +69,8 @@ def login():
         print('登录失败，请重试！')
         print(soup.find('span', id='ContentPlaceHolder1_Lab1'))
         s=login()
-    #print(r.text)
     print(r.status_code)
-    #print(r.url)
     return s
-#token=get_token()
-#ocr=get_ocr(token)
 
 def getallid(s):
     all_id=[]
@@ -111,7 +107,7 @@ def toint(x):
     x=x.replace(',','')
     return int(x)
 
-def getxls(id,s,ii):
+def getxls(id,s):
 
     headers={
         'Host':r'c.spdex.com',
@@ -120,7 +116,8 @@ def getxls(id,s,ii):
     url=r'http://c.spdex.com'
     r=s.get(url+id,headers=headers)
     soup=BeautifulSoup(r.text,'html.parser')
-    #print(soup.find('title'))
+    name=soup.find('h4').text
+    name=name.replace(' ','')
     try:
         n=soup.find('td',{'valign': 'bottom','nowrap': 'true',}).text[8:10]
     except:
@@ -180,7 +177,7 @@ def getxls(id,s,ii):
                 sheet2.write(row, 5, td[10].text)
                 sheet3.write(row, 5, td[15].text)
                 row=row+1
-    wbk.save(r'spdex_com/'+str(ii)+'.xls')
+    wbk.save(r'spdex_com/'+name+'.xls')
 
 if __name__=='__main__':
     s=login()
@@ -190,7 +187,7 @@ if __name__=='__main__':
     if not os.path.exists('spdex_com'):
         os.mkdir('spdex_com')
         print('创建spdex_文件夹')
-    ii = 1  # 后面做文件名
+    #ii = 1  # 后面做文件名
     for a in range(len(all_id)):
-        getxls(all_id[a],s,ii)
-        ii=ii+1
+        getxls(all_id[a],s)
+        #ii=ii+1
