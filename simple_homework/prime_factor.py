@@ -1,11 +1,12 @@
 def input_num():
     while(True):
-        num=input('please in put a number\n')
+        zhangsan_num=input('please in put a number\n')
         try:
-            num=int(num)
+            num=int(zhangsan_num)
             break
         except  :
-            print('please input a number NOT letters of an alphabet!')
+            print('please input a number NOT letters of an alphabet or float!\n')
+
     return num
 def factorization(num):
     while num!=1:
@@ -14,7 +15,8 @@ def factorization(num):
                 print(i)
                 num //= i
                 break
-
+print(int(2.2))
+print(int('2.2'))
 num=input_num()
 print('prime factor is:')
 factorization(num)
