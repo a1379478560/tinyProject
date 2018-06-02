@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from zhilian.zhilian_com import STATUS,POSITION,addlog,I
+#from zhilian.zhilian_com import STATUS,POSITION,addlog,I
 def getonepagedata(city,kw,page,):
     position=[]
     headers = {

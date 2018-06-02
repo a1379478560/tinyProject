@@ -1,5 +1,5 @@
-from zhilian.save  import *
-from zhilian.spider import *
+from .save  import *
+from .spider import *
 from tkinter import *
 from tkinter.filedialog import askdirectory
 import threading
