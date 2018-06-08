@@ -3,7 +3,7 @@ import  xlwt
 from  bs4 import BeautifulSoup
 import os
 import re
-import time
+import datetime,time
 def getallid():
     all_id=[]
     headers={
@@ -32,26 +32,47 @@ def toint(x):
     x=x.replace(',','')
     return int(x)
 
-def getxls(id):
-
+def get2team(id):
+    now_time = datetime.datetime.now().strftime('%Y%m%d')
     headers={
         'Host':r'info.haocai138.com',
         'User-Agent': r'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
     }
     url=r'http://info.haocai138.com/cn/team/lineup/'
-    r1=requests.get(url+id[0],headers=headers)
+    url_js1='http://info.haocai138.com/jsData/teamInfo/teamDetail/tdl'+id[0]+'.js?version='+now_time
+    url_js2 = 'http://info.haocai138.com/jsData/teamInfo/teamDetail/tdl' + id[1] + '.js?version=' + now_time
+    r1=requests.get(url+id[0]+'.html',headers=headers)
     soup1=BeautifulSoup(r1.text,'html.parser')
     #time.sleep(1)
-    r2 = requests.get(url + id[1], headers=headers)
+    r2 = requests.get(url + id[1]+'.html', headers=headers)
     soup2 = BeautifulSoup(r2.text, 'html.parser')
+    print(r1.url)
     try:
         t1=soup1.find('title').text.split(',')[0]
         t2 = soup2.find('title').text.split(',')[0]
+        t1=t1.replace(' ','')
+        t2=t2.replace(' ','')
     except:
         print('这个没有数据')
         return
 
     print(t1,'vs',t2)
+
+    r1=requests.get(url_js1,headers=headers)
+    # pattern=re.compile(r'lineupDetail=*;')
+    # lineup1=re.search(pattern,r1.text)
+    #print(r1.text)
+    lineup1=r1.text.split('lineupDetail=')[-1].split(';')[0]
+    time.sleep(2)
+    r2=requests.get(url_js2,headers=headers)
+    lineup2=r2.text.split('lineupDetail=')[-1].split(';')[0]
+    time.sleep(2)
+    lineup1=eval(lineup1)
+    lineup2=eval(lineup2)
+    return (t1,t2),lineup1,lineup2
+def getxls(two_team,lineup1,lineup2):
+    t1=two_team[0]
+    t2=two_team[1]
     wbk = xlwt.Workbook(encoding='ascii')
     sheet1 = wbk.add_sheet(t1)
     sheet2 = wbk.add_sheet(t2)
@@ -66,7 +87,7 @@ def getxls(id):
     sheet2.write(0, 8, '合同截止')
     sheet2.write(0, 9, '首发次数/进球')
     sheet2.write(0,10, '替补次数/进球')
-    sheet2.write(0, 11, '助攻')
+    sheet2.write(0,11,'助攻')
 
     sheet1.write(0, 0, '号码')
     sheet1.write(0, 1, '姓名')
@@ -80,34 +101,41 @@ def getxls(id):
     sheet1.write(0, 9, '首发次数/进球')
     sheet1.write(0,10, '替补次数/进球')
     sheet1.write(0, 11, '助攻')
+
     row=1
-    for i in range(1,n+1):
-        r=s.get(url+id+'/?page='+str(i))
-        soup=BeautifulSoup(r.text,'html.parser')
-        tr=soup.find_all('tr',{'class': False})
-        for x in tr:
-            td=x.find_all('td')
-            if len(td)==16 :
-                time=td[0].text
-                sheet1.write(row,0,time)
-                sheet2.write(row, 0, time)
+    for i in lineup1:
+        sheet1.write(row, 0, i[1])
+        sheet1.write(row, 1, i[2])
+        sheet1.write(row, 2, i[5])
+        sheet1.write(row, 3, i[6])
+        sheet1.write(row, 4, i[7])
+        sheet1.write(row, 5, i[8])
+        sheet1.write(row, 6, i[9])
+        sheet1.write(row, 7, i[11]+'万英镑')
+        sheet1.write(row, 8, i[12])
+        sheet1.write(row, 9, i[13]+'/'+i[14])
+        sheet1.write(row, 10, i[15]+'/'+i[16])
+        sheet1.write(row, 11, i[17])
+        row=row+1
 
-                sheet1.write(row,1,float(td[1].text))
-                sheet2.write(row, 1, float(td[6].text))
-
-                sheet1.write(row,2,toint(td[2].text))
-                sheet2.write(row,2, toint(td[7].text))
-
-                sheet1.write(row,3,toint(td[3].text))
-                sheet2.write(row, 3, toint(td[8].text))
-
-                sheet1.write(row,4,td[4].text)
-                sheet2.write(row,4, td[9].text)
-
-                sheet1.write(row,5,td[5].text)
-                sheet2.write(row, 5, td[10].text)
-
-                row=row+1
+    row = 1
+    for i in lineup2:
+        sheet2.write(row, 0, i[1])
+        sheet2.write(row, 1, i[2])
+        sheet2.write(row, 2, i[5])
+        sheet2.write(row, 3, i[6])
+        sheet2.write(row, 4, i[7])
+        sheet2.write(row, 5, i[8])
+        sheet2.write(row, 6, i[9])
+        if i[11]!='':
+            sheet2.write(row, 7, i[11] + '万英镑')
+        else:
+            sheet2.write(row,7,'')
+        sheet2.write(row, 8, i[12])
+        sheet2.write(row, 9, i[13] + '/' + i[14])
+        sheet2.write(row, 10, i[15] + '/' + i[16])
+        sheet2.write(row, 11, i[17])
+        row = row + 1
     wbk.save(r'haocai138_com/'+t1+'VS'+t2+'.xls')
 def getteamid(all_id):
     team=[]
@@ -116,16 +144,16 @@ def getteamid(all_id):
         'User-Agent': r'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
     }
     url='http://a.haocai138.com'
-    pattern1 = re.compile(r'hometeamid=\d\d\d')
-    pattern2 = re.compile(r'guestteamid=\d\d\d')
+    pattern1 = re.compile(r'hometeamid=\d\d\d+')
+    pattern2 = re.compile(r'guestteamid=\d\d\d+')
     for match in all_id:
         r=requests.get(url+match,headers=headers)
         team_id=pattern1.search(r.text)
         team_id=team_id.group()
-        home_team_id=team_id[-3:]
+        home_team_id=team_id.split('=')[-1]
         team_id=pattern2.search(r.text)
         team_id=team_id.group()
-        guest_team_id=team_id[-3:]
+        guest_team_id=team_id.split('=')[-1]
         team.append((home_team_id,guest_team_id))
     return team
 if __name__=='__main__':
@@ -136,7 +164,8 @@ if __name__=='__main__':
     print(teamid)
     if not os.path.exists('haocai138_com'):
         os.mkdir('haocai138_com')
-        print('创建spdex_文件夹')
+        print('创建haocai138_com文件夹')
 
     for a in teamid:
-        getxls(a)
+        name,lineup1,lineup2=get2team(a)
+        getxls(name,lineup1,lineup2)
