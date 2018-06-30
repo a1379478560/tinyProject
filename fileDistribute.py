@@ -4,6 +4,7 @@ import os
 import time
 import threading
 import shutil
+import time
 flag=0
 src_file=r''
 to_file=[]
@@ -90,6 +91,7 @@ def syn():
                 lb_flag['bg']='red'
         #file_list=file_now
 def copy(file):
+    time.sleep(1)
     file_list.append(file)
     for path in to_file:
         shutil.copyfile(os.path.join(src_file,file),os.path.join(path,file))

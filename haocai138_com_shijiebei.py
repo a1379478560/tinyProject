@@ -10,19 +10,18 @@ def getallid():
         'Host':r'a.haocai138.com',
         'User-Agent': r'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
     }
-    origin_url=r'http://a.haocai138.com/info/match/Zucai.aspx'
+    origin_url=r'http://a.haocai138.com/buy/toto14.aspx'
     r=requests.get(origin_url,headers=headers)
     soup=BeautifulSoup(r.text,'html.parser')
-    origin_id=soup.find('option').text
+    origin_id=soup.find('a',{'class':'SelectedIssue'}).string[3:10]
     origin_id=int(origin_id)
     print('今天的赛事编号是：',origin_id)
-    id_url='http://a.haocai138.com/info/match/Zucai.aspx?typeID=1&issueNum='+str(origin_id)
+    id_url='http://a.haocai138.com/buy/toto14.aspx'
     r=requests.get(id_url,headers=headers)
-    soup=BeautifulSoup(r.text,'html.parser')
-    trs=soup.find_all('tr',{'matchid':True})
-    for tr in trs:
-        a=tr.find_all('a')[1]
-        all_id.append(a['href'])
+    pattern=re.compile(r'/Handle/Panlu.aspx\?id=\d{7}')
+    all_id=pattern.findall(r.text)
+    print(all_id)
+    all_id=list(set(all_id))
     return  all_id
 def f(xx):
     return xx['id']
