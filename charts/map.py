@@ -2,8 +2,8 @@ from pyecharts import Geo,Map
 import xlrd
 
 filename='统计信息.xlsx'
-data = xlrd.open_workbook(filename)
-sheet1=data.sheet_by_index(0)
+scores = xlrd.open_workbook(filename)
+sheet1=scores.sheet_by_index(0)
 nrows = sheet1.nrows
 city={}
 for i in range(1,nrows):

@@ -96,8 +96,8 @@ if __name__=="__main__":
             except:
                 print('请输入整数')
 
-    data,I=getAllData(city,kw,page_num)
-    num=len(data)
+    scores, I=getAllData(city, kw, page_num)
+    num=len(scores)
     print('全部爬取完成，共爬取%s条数据，正在存入Excel'%(num))
-    save_xls('',city+'-'+kw,data)
+    save_xls('', city +'-' + kw, scores)
     print('保存成功！已保存在程序目录下并命名为城市+关键词.xls')

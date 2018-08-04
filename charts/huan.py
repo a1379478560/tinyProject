@@ -2,8 +2,8 @@ from pyecharts import Pie
 import xlrd
 
 filename='2012毕设.xls'
-data = xlrd.open_workbook(filename)
-sheet1=data.sheet_by_index(0)
+scores = xlrd.open_workbook(filename)
+sheet1=scores.sheet_by_index(0)
 nrows = sheet1.nrows
 source={}
 value=[0,0,0]

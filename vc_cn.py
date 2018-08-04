@@ -68,12 +68,12 @@ def write(datalist):
     book.save('result.xls')  # 保存
 
 if __name__ == '__main__':
-    data=[]
+    scores=[]
     baseUrl = 'https://www.vc.cn/search/companies'
     word = input('输入搜索关键词\n')  # 搜索关键词
     page=input('要抓取的页数\n')
     for i in range(1,int(page)+1):
-        data=data+getContent(baseUrl,word,i)
+        scores= scores + getContent(baseUrl, word, i)
 
-    write(data)
+    write(scores)
 

@@ -19,7 +19,7 @@ header = {
 header2={
 'User-Agent': r'Agent:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400' ,
 }
-data={
+scores={
     'fixtureid': '726453',
     'excelst': '1',
     'style': '0',
@@ -66,8 +66,8 @@ def getxls(all_id):
         os.mkdir('500_com')
     for url_id in all_id:
         header['Referer']=r'http://odds.500.com/fenxi/ouzhi-'+url_id+'shtml'
-        data['fixtureid']=url_id
-        result = requests.post(download_url, headers=header, data=data)
+        scores['fixtureid']=url_id
+        result = requests.post(download_url, headers=header, data=scores)
         with open('500_com/'+str(next(it))+".xls", 'wb+') as f:
             f.write(result.content)
 
