@@ -144,8 +144,8 @@ def getteamid(all_id):
         'User-Agent': r'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
     }
     url='http://a.haocai138.com'
-    pattern1 = re.compile(r'hometeamid=\d+')
-    pattern2 = re.compile(r'guestteamid=\d+')
+    pattern1 = re.compile(r'hometeamid=\d\d\d+')
+    pattern2 = re.compile(r'guestteamid=\d\d\d+')
     for match in all_id:
         r=requests.get(url+match,headers=headers)
         team_id=pattern1.search(r.text)
