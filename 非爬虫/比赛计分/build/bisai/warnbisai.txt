@@ -1,0 +1,22 @@
+missing module named resource - imported by posix, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named posix - imported by os, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named _posixsubprocess - imported by subprocess, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named 'org.python' - imported by pickle, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py, xml.sax
+missing module named readline - imported by cmd, code, pdb, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named _winreg - imported by platform, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named _scproxy - imported by urllib.request
+missing module named java - imported by platform, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named 'java.lang' - imported by platform, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named termios - imported by tty, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py, getpass
+missing module named grp - imported by shutil, tarfile, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py, netrc, getpass
+missing module named _dummy_threading - imported by dummy_threading, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named org - imported by copy, C:\Users\Liu\PycharmProjects\spider\非爬虫\比赛计分\bisai.py
+missing module named elementtree - imported by xlrd.xlsx
+missing module named lxml - imported by xlrd.xlsx
+missing module named cElementTree - imported by xlrd.xlsx
+missing module named cStringIO - imported by xlrd.timemachine
+missing module named copy_reg - imported by cStringIO
