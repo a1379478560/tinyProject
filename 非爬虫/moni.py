@@ -1,5 +1,5 @@
 import random
-LOOP=25
+LOOP=10000
 winMoney = 0  # 总赢钱数，可以负
 RATE=[(1,-1),(1.23,6),(1.23,7),(1.23,7),(1.52,6),(1.52,7),(1.52,7),(1.87,6),(1.87,7),(1.87,7),(2.3,6),(2.3,7),(2.83,6),(3.94,6)]
 RANK=[0,0,0,0,0,0,0,0] #八条龙层数
@@ -10,8 +10,9 @@ class long:
         self.defeat=0   #总输的局数
         self.flag=0     #是否从后面层数补偿完回到第一层
         self.rank = 0  # 处在那一层
-        self.winNumList=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
+        self.winNumList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
         self.winnum = 0  # 已经赢得局数
+        self.back6=0
         self.index = 0  # 第几小局  其实可以用loopnum%3
         self.game3 = [0, 0, 0]  # 三小局的赢输
         self.ya=ya # 三局分别押什么  1大 -1小
@@ -35,17 +36,37 @@ class long:
                 else:
                     self.rank+=1
                     print(self.name + "进一层")
+
+
             else:
                 self.winnum+=1
-                self.winNumList[self.rank]+=1
+                self.winNumList[self.rank] += 1
                 self.win+=1
 
+            if(self.rank==0 and self.back6//2>0 and self.winNumList[0]>=self.back6//2):
+                self.rank=0  #重置
+                self.win=0
+                self.defeat=0
+                self.flag=0
+                self.winNumList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
+                self.back6 = 0
+                self.index = 0  # 第几小局  其实可以用loopnum%3
+                self.game3 = [0, 0, 0]  # 三小局的赢输
+                print(self.name,"重置")
+                RANK[self.rank]=0
+                return
             if self.flag and self.checkReset():
                 self.rank=0  #重置
                 self.win=0
                 self.defeat=0
                 self.flag=0
-
+                self.winNumList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
+                self.back6 = 0
+                self.index = 0  # 第几小局  其实可以用loopnum%3
+                self.game3 = [0, 0, 0]  # 三小局的赢输
+                RANK[self.rank] = 0
+                print(self.name,"重置")
+                return
         if(self.index==2):     #结算一小局
             self.game3=[0,0,0] #1赢 -1输
             self.index=0
@@ -54,7 +75,11 @@ class long:
             self.index+=1
 
         if(self.winNumList[self.rank]>=RATE[self.rank][1] and  RATE[self.rank][1]!=-1):  #达到连赢6（7）局就回退一层
-            print(self.name,"winnum",self.winNumList)
+            print(self.name, "winnum", self.winNumList)
+
+            if RATE[self.rank][1]==6:
+                self.back6+=1   #计数6补7的的次数
+
             self.winNumList[self.rank] -= RATE[self.rank][1]
             self.rank-=1
             self.winnum=0
@@ -63,8 +88,7 @@ class long:
             print(self.name+"退一层")
 
     def loopOne(self,winCode):   #
-        self.rank=RANK[self.id]
-
+        self.rank = RANK[self.id]
         if(winCode==self.ya[self.index]):  #判断赢输
             iswin=1
         else:
@@ -82,49 +106,35 @@ class long:
         RANK[self.id]=self.rank
         return    xiazhujine #返回下注金额   self.ya[self.index] 是押赢还是输 用正负表示，最后在循环里面八条龙虚注相抵
 
-longlist=[]
-longlist.append(long("龙1",[1,1,1],0))   #初始化压注顺序  1押大 -1 押小
-longlist.append(long("龙2",[1,1,-1],1))
-longlist.append(long("龙3",[1,-1,1],2))
-longlist.append(long("龙4",[1,-1,-1],3))
-longlist.append(long("龙5",[-1,1,1],4))
-longlist.append(long("龙6",[-1,1,-1],5))
-longlist.append(long("龙7",[-1,-1,1],6))
-longlist.append(long("龙8",[-1,-1,-1],7))
+l1=long("龙1",[1,1,1],0)       #初始化压注顺序  1押大 -1 押小
+l2=long("龙2",[1,1,-1],1)
+l3=long("龙3",[1,-1,1],2)
+l4=long("龙4",[1,-1,-1],3)
+l5=long("龙5",[-1,1,1],4)
+l6=long("龙6",[-1,1,-1],5)
+l7=long("龙7",[-1,-1,1],6)
+l8=long("龙8",[-1,-1,-1],7)
 
-
-
-lis=[8,3,8,1,3,4,5,9,6,6,3,6,1,4,5,2,5,9,7,3,6,0,6,0,2,9,1,3,0,5,4,9]
-for loo in range(len(lis)):
+for loo in range(LOOP):
     winNum=random.randint(0,9)
-    winNum=lis[loo]
     winCode=1 if winNum>4.5 else -1
     print("第",loo+1,"次")
     print("本次开奖号码：",winNum)
 
-    r1 =longlist[0].loopOne(winCode)
-    r2 =longlist[1].loopOne(winCode)
-    r3 =longlist[2].loopOne(winCode)
-    r4 =longlist[3].loopOne(winCode)
-    r5 =longlist[4].loopOne(winCode)
-    r6 =longlist[5].loopOne(winCode)
-    r7 =longlist[6].loopOne(winCode)
-    r8 =longlist[7].loopOne(winCode)
+    r1 =l1.loopOne(winCode)
+    r2 =l2.loopOne(winCode)
+    r3 =l3.loopOne(winCode)
+    r4 =l4.loopOne(winCode)
+    r5 =l5.loopOne(winCode)
+    r6 =l6.loopOne(winCode)
+    r7 =l7.loopOne(winCode)
+    r8 =l8.loopOne(winCode)
 
     print("本次下注",round(abs(r1+r2+r3+r4+r5+r6+r7+r8),3))
     winMoney-=abs(r1+r2+r3+r4+r5+r6+r7+r8)
+    print("各龙层数", RANK)
     if(winCode*(r1+r2+r3+r4+r5+r6+r7+r8)>0):
         winMoney+=(r1+r2+r3+r4+r5+r6+r7+r8)*winCode*1.95
     print("总盈亏",round(winMoney,3))
-    print("各龙层数",RANK)
-    for ii in RANK:
-        if(ii>=12):              #交换
-            maxindex=RANK.index(ii)
-            minindex=RANK.index(min(RANK))
-            temp = min(RANK)
-            RANK[minindex]=ii
-            RANK[maxindex]=temp
-            break
-
     print("--------------------------------------")
 
