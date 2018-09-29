@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import time
 from datetime import datetime
 from  datetime import timedelta
+import re
 HEADERS = {
     'User-Agent': r'Agent:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
 }
@@ -10,6 +11,26 @@ def getPermnertUrl(origin):
     r=requests.get(origin,headers=HEADERS)
     time.sleep(1)
     return r.url
+
+def arctical_filter(arcticals):
+    article_new=[]
+    WORD_LIST = ["Flyme", "flyme", ]
+    patterns = []
+    for word in WORD_LIST:
+        patterns.append(re.compile(word))
+
+    for arctical in arcticals:
+        try:
+            url=arctical['article']['url']
+        except:
+            url=arctical['article_url']
+        r=requests.get(url,headers=HEADERS)
+        flag = 0
+        for pattern in patterns:
+            flag+=len(pattern.findall(r.text))
+        if flag>=4:
+            article_new.append(arctical)
+    return article_new
 
 def strToTime(time_str):
     if "天前" in time_str:
@@ -62,6 +83,8 @@ def ithome():
         title=div.find('h3').find('a').text.split("-")
         try:
             temp['platform']=title[2]
+            if "..." in temp['platform']:
+                temp['platform']="IT之家"
         except:
             temp['platform'] = "IT之家"
         try:

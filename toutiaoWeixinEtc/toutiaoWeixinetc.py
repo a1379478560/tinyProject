@@ -4,6 +4,7 @@ import time
 import xlwt
 import wechatsogou
 from func.others import getAll
+from func.others import arctical_filter
 FIND_TIME=7
 KEY_WORD='flyme'
 HEADERS = {
@@ -34,7 +35,7 @@ def getToutiaoOnePageArctical(offset, keyword):
                 temp['media_name'] = x['media_name']
                 temp['title'] = x['title']
                 temp['abstract'] = x['abstract']
-                temp['article_url'] = x['article_url']
+                temp['article_url'] = "http://toutiao.com"+x['open_url']
                 temp['comments_count'] = x['comments_count']
                 data.append(temp)
         return data
@@ -48,6 +49,9 @@ def  getToutiao():
         data+=temp
         #print(i)
         time.sleep(1)
+    print(len(data))
+    data=arctical_filter(data)
+    print(len(data))
     return data
 
 def writeToutiao(sheet,toutiaodata):
@@ -143,6 +147,7 @@ def writexls(data):
         wkb.save("r.xls")
     except:
         wkb.save("r1.xls")
+
 def getOnePageWeixin(keyword,page):
     base_url = 'http://weixin.sogou.com/weixin?'
     headers = {
@@ -184,7 +189,7 @@ def getAllPageWeixin():
     for x in data:
         if '吉他' not in x['gzh']['wechat_name']:    #有一个吉他乐队跟flyme重名了，过滤掉它
             temp.append(x)
-
+    temp=arctical_filter(temp)
     return temp
 
 if __name__ == '__main__':
