@@ -4,6 +4,14 @@ import time
 from datetime import datetime
 from  datetime import timedelta
 import re
+
+now=int(time.time())
+weekago=now-604800
+now=str(now)
+weekago=str(weekago)
+
+base_url="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baiduadv&wd=title:%20(flyme)&ct=2097152&oq=title:%20(flyme)&rsv_pq=e7f8d40200002c95&rsv_t=f73dkPk4TSfKa3UdzZQdlEhycwD30q9MWX1dP02Fq44PKf5rquwfApLEIvFbHes&rqlang=cn&rsv_enter=1&gpc=stf="+weekago+","+now+"|stftype=2&tfflag=1&rsv_srlang=cn&sl_lang=cn&rsv_rq=cn&si="
+
 HEADERS = {
     'User-Agent': r'Agent:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4843.400 QQBrowser/9.7.13021.400',
 }
@@ -24,11 +32,15 @@ def arctical_filter(arcticals):
             url=arctical['article']['url']
         except:
             url=arctical['article_url']
+        time.sleep(1)
         r=requests.get(url,headers=HEADERS)
+        # print(url)
+        # print(r.text)
         flag = 0
         for pattern in patterns:
             flag+=len(pattern.findall(r.text))
-        if flag>=4:
+        print(flag)
+        if flag>=3:
             article_new.append(arctical)
     return article_new
 
@@ -39,7 +51,6 @@ def strToTime(time_str):
         date= datetime.now()-timedelta(days=time_str)
         date_str=date.strftime('%Y-%m-%d')
         return date_str
-        return
     if "小时前" in  time_str:
         time_str=time_str.replace("小时前","")
         time_str=int(time_str)
@@ -59,6 +70,10 @@ def qudong():
         temp={}
         keyword=li.find('span',{"class":"keyword"})
         if keyword:
+            arcticle_time = datetime.strptime(li.find('div').find('div').find('span').text, '%Y-%m-%d %H:%M')
+            if arcticle_time <=datetime.now()-timedelta(days=7):
+                #print(arcticle_time)
+                continue
             temp['title']=li.find('h3').text
             temp['url']=li.find('a')['href']
             temp['date']=li.find('div').find('div').find('span').text
@@ -70,10 +85,11 @@ def qudong():
     return data
 
 def ithome():
-    url="http://so.ithome.com/cse/search?q=flyme&s=10375816656400526905&srt=lds&stp=1&sti=10080&nsid=0"
-    url_baidu="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=title%3A%20(%20%22flyme%22%20)%20site%3A(ithome.com)&oq=title%253A%2520(%2520%2526quot%253Bflyme%2526quot%253B%2520)%2520site%253A(ithome.com)&rsv_pq=f5d374a700003f29&rsv_t=a8c9oorelDdpb4slh%2FM0qizZv1BInCSSRylzcUl0Mt4viGjzCM%2BiJ50kofw&rqlang=cn&rsv_enter=0&gpc=stf%3D1536892522%2C1537497322%7Cstftype%3D1&tfflag=1&si=(ithome.com)&ct=2097152&rsv_srlang=cn&sl_lang=cn&rsv_rq=cn"
+    url="http://so.ithome.com/cse/search?q=flyme&s=10789541256400526905&srt=lds&stp=1&sti=10080&nsid=0"
+    url_baidu = base_url + "ithome.com"
     r=requests.get(url_baidu,headers=HEADERS)
-    r.encoding=r.apparent_encoding
+    #print(r.text)
+    #r.encoding=r.apparent_encoding
     soup=BeautifulSoup(r.text,"html.parser")
     divs = soup.find_all('div', {'class': "result c-container "})
     data=[]
@@ -81,12 +97,7 @@ def ithome():
         temp={}
         temp['url']=div.find('h3').find('a')['href']
         title=div.find('h3').find('a').text.split("-")
-        try:
-            temp['platform']=title[2]
-            if "..." in temp['platform']:
-                temp['platform']="IT之家"
-        except:
-            temp['platform'] = "IT之家"
+        temp['platform'] = "IT之家"
         try:
             temp['channel']=title[1]
         except:
@@ -102,7 +113,7 @@ def ithome():
     return data
 
 def chinaz():
-    url_baidu="https://www.baidu.com/s?q1=flyme&q2=&q3=&q4=&gpc=stf%3D1536899588.7%2C1537504388.7%7Cstftype%3D1&ft=&q5=1&q6=chinaz.com&tn=baiduadv"
+    url_baidu=base_url+"chinaz.com"
     r=requests.get(url_baidu,headers=HEADERS)
     r.encoding=r.apparent_encoding
     soup=BeautifulSoup(r.text,"html.parser")
@@ -125,7 +136,7 @@ def chinaz():
     return data
 
 def techweb():
-    url_baidu="https://www.baidu.com/s?q1=flyme&q2=&q3=&q4=&gpc=stf%3D1536899588.7%2C1537504388.7%7Cstftype%3D1&ft=&q5=1&q6=techweb.com.cn&tn=baiduadv"
+    url_baidu = base_url + "techweb.com.cn"
     r=requests.get(url_baidu,headers=HEADERS)
     r.encoding=r.apparent_encoding
     soup=BeautifulSoup(r.text,"html.parser")
@@ -146,7 +157,7 @@ def techweb():
     return data
 
 def yesky():
-    url_baidu="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baiduadv&wd=title%3A%20(flyme)&oq=site%3A(chinaz.com)%20title%3A%20(flyme)&rsv_pq=e726b1ef0000c15b&rsv_t=718ewxhnd%2F2BDfL4KMJ8ZFGXHY7xDfi0WJYMuU%2FXQvG%2F%2B90%2Bw11pxXc76ToHuE8&rqlang=cn&rsv_enter=1&si=yesky.com&ct=2097152&gpc=stf%3D1536891917.265%2C1537496717.265%7Cstftype%3D1&rsv_srlang=cn&sl_lang=cn&rsv_rq=cn"
+    url_baidu = base_url + "yesky.com"
     r=requests.get(url_baidu,headers=HEADERS)
     r.encoding=r.apparent_encoding
     soup=BeautifulSoup(r.text,"html.parser")
@@ -167,7 +178,7 @@ def yesky():
     return data
 
 def ifeng():
-    url_baidu="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baiduadv&wd=title%3A%20(flyme)&oq=site%3A(chinaz.com)%20title%3A%20(flyme)&rsv_pq=e726b1ef0000c15b&rsv_t=c3e23KqEJaVvDzHsxsFCTv5bT3Y8b9p9pPRoNqDerEirNKkMGa1i931OJUTwhCA&rqlang=cn&rsv_enter=1&si=ifeng.com&ct=2097152&gpc=stf%3D1536891917.265%2C1537496717.265%7Cstftype%3D1&rsv_srlang=cn&sl_lang=cn&rsv_rq=cn"
+    url_baidu = base_url + "ifeng.com"
     r=requests.get(url_baidu,headers=HEADERS)
     r.encoding=r.apparent_encoding
     soup=BeautifulSoup(r.text,"html.parser")
@@ -188,7 +199,8 @@ def ifeng():
     return data
 
 def anzhuo():
-    url_baidu="https://www.baidu.com/s?q1=title%3A+%28Flyme%29&q2=&q3=&q4=&gpc=stf%3D1536901746.762%2C1537506546.762%7Cstftype%3D1&ft=&q5=&q6=anzhuo.cn&tn=baiduadv"
+    url_baidu = base_url + "anzhuo.cn"
+    url_baidu111="https://www.baidu.com/s?q1=title%3A+%28Flyme%29&q2=&q3=&q4=&gpc=stf%3D"+now+".762%2C"+weekago+".762%7Cstftype%3D1&ft=&q5=&q6=anzhuo.cn&tn=baiduadv"
     r=requests.get(url_baidu,headers=HEADERS)
     r.encoding=r.apparent_encoding
     soup=BeautifulSoup(r.text,"html.parser")
@@ -211,12 +223,13 @@ def anzhuo():
 def getAll():
     data=[]
     domains=[(ifeng,"凤凰网"),(anzhuo,"安卓之家"),(yesky,"天极网"),(techweb,"TechWeb"),(chinaz,"站长之家"),(qudong,"驱动之家"),(ithome,"IT之家"),]
+    domains2 = [ (qudong,"驱动之家"), ]
     for domain in domains:
         print("开始爬取",domain[1])
         try:
             tempData=domain[0]()
         except:
-            #raise
+            raise
             print("爬取",domain[1],"失败，可能是因为网络不佳，若同一个网址多次爬取失败可能是因为网站改版。")
             tempData=[]
         if tempData:
