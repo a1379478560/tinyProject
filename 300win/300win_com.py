@@ -82,6 +82,7 @@ def geturl(uri):
             browser.switch_to_window(handle)
             browser.close()
     return result_url
+
 if  __name__=='__main__':
     id=input('请输入要爬取的期号：\n')
     url='http://www.310win.com/buy/toto14.aspx?issueNum='+str(id)
