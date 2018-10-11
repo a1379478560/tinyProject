@@ -98,14 +98,31 @@ def  writexls(data):
 
         print(match[1])
         for j in range(11):
-            sheet.write(row+2,j,match[1][0][j])
+            if match[1][0][j]=="-":
+                sheet.write(row + 2, j, 0)
+            else:
+                sheet.write(row+2,j,match[1][0][j])
         for j in range(11):
-            sheet.write(row+3,j,match[1][1][j])
+            if match[1][1][j]=="-":
+                sheet.write(row + 3, j, 0)
+            else:
+                sheet.write(row+3,j,match[1][1][j])
         for j in range(11):
-            sheet.write(row+4,j,match[1][2][j])
+            if match[1][2][j]=="-":
+                sheet.write(row + 4, j, 0)
+            else:
+                sheet.write(row+4,j,match[1][2][j])
 
     wbk.save("500_com结果.xls")
 
+def procdata(data):
+    for i,ddd in enumerate(data):
+        for j,dd in enumerate(ddd):
+            for k,d in enumerate(dd) :
+                if d=='-':
+                    data[i][j][k]=0
+                    print("*",end="")
+    return data
 if __name__=="__main__":
     data=[]
     id=input("请输入要获取的期数，输入0获取当前期：")
@@ -121,5 +138,7 @@ if __name__=="__main__":
         data.append(temp)
 
     print("爬取完成，开始写入excel表格...")
+    #data=procdata(data)
+    #print(data)
     writexls(data)
     print("爬取完成！")
