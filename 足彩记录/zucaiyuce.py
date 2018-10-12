@@ -32,8 +32,8 @@ def selectdb(data):
 
     for i in range(nrows):
         line=sheet.row_values(i,0,24)
-        if operator.eq(line,data["status"]):
-            return sheet.cell_value(i,24)
+        if operator.eq(line,data["status"]) and data['ballNum']==sheet.cell_value(i,24):
+            return sheet.cell_value(i,25)
     return False
 
 def writexls(data,res):
@@ -44,7 +44,8 @@ def writexls(data,res):
     sheet_w=wbk.get_sheet(data['winner'])
     for i in range(24):
         sheet_w.write(nrows,i,data['status'][i])
-    sheet_w.write(nrows,24,res)
+    sheet_w.write(nrows,24,data['ballNum'])
+    sheet_w.write(nrows,25,res)
     wbk.save(dbName)
 
 def printres(data):
