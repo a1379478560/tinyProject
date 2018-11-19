@@ -70,7 +70,8 @@ def qudong():
         temp={}
         keyword=li.find('span',{"class":"keyword"})
         if keyword:
-            arcticle_time = datetime.strptime(li.find('div').find('div').find('span').text, '%Y-%m-%d %H:%M')
+            #print(li.find('div').find('div').find('span').text)
+            arcticle_time = datetime.strptime(li.find('div').find('div').find('span').text.replace("手机频道",""), '%Y-%m-%d %H:%M')
             if arcticle_time <=datetime.now()-timedelta(days=7):
                 #print(arcticle_time)
                 continue
@@ -237,7 +238,8 @@ def getAll():
     return data
 
 if __name__ == '__main__':
-    data=getAll()
+    #data=getAll()
+    data=qudong()
     print(data)
 
 

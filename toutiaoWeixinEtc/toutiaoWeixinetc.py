@@ -49,9 +49,9 @@ def  getToutiao():
         data+=temp
         #print(i)
         time.sleep(1)
-    print(len(data))
+    #print(len(data))
     data=arctical_filter(data)
-    print(len(data))
+    #print(len(data))
     return data
 
 def writeToutiao(sheet,toutiaodata):

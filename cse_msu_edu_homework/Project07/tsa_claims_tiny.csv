@@ -1,0 +1,23 @@
+Claim Number,Date Received,Incident Date,Airport Code,Airport Name,Airline Name,Claim Type,Claim Site,Item,Claim Amount,Status,Close Amount,Disposition
+0909802M,4-Jan-02,2012/12/2 0:00,EWR,Newark International Airport,Continental Airlines,Property Damage,Checkpoint,Other,$350.00 ,Approved,$350.00 ,Approve in Full
+0202417M,2-Feb-02,1/16/04 0:00,SEA,Seattle-Tacoma International,,Property Damage,Checked Baggage,Luggage (all types including footlockers),$100.00 ,Settled,$50.00 ,Settle
+14268,20-Jun-02,6/16/02 0:00,PHX,Phoenix Sky Harbor International,,Property Damage,Checkpoint,Computer - Laptop,$2;270.09 ,Canceled,,
+2.00E+12,25-Jun-02,2005/4/2 0:00,ATL,Hartsfield-Jackson Atlanta International Airport,,Passenger Property Loss,Checkpoint,Jewelry - Fine,$4;457.29 ,Denied,,Deny
+0909824M,,2010/7/2 0:00,SEA,Seattle-Tacoma International,,Property Damage,Checked Baggage,Other,$1;190.15 ,Settled,$755.80 ,Settle
+13334,8-Jul-02,2006/4/2 0:00,BWI,Baltimore/Washington Intl Thurgood Marshall,Southwest Airlines,,Other,Clothing - Shoes; belts; accessories; etc.,$450.00 ,Canceled,,
+0616771L,12-Jul-02,,,,,,Other,Clothing - Shoes; belts; accessories; etc.,,Denied,,Deny
+0714534M,22-Jul-02,2003/6/2 0:00,,,Northwest Airlines,Property Damage,Other,Photographic Film,$68.00 ,Denied,$0.00 ,Deny
+0616540L,22-Jul-02,,,,,,Other,Other,,Insufficient; one of the following items required: sum certain; statement of fact; signature; location of incident; and date.,,
+21789,2-Jan-03,11/23/02 0:00,HOU,William P. Hobby,,Property Damage,Checkpoint,Cameras - Digital,$352.99 ,Settled,$150.00 ,Settle
+0105568M,5-Jan-04,12/21/03 0:00,FLL,Ft. Lauderdale-Hollywood International,,,Checked Baggage,Jewelry - Fine,$550.00 ,Settled,$275.00 ,Settle
+2.01E+12,4-Jan-05,11/27/04 0:00,HOU,William P. Hobby,Continental Airlines,Passenger Property Loss,Checked Baggage,Jewelry - Fine,$2;000.00 ,Denied,$0.00 ,Deny
+2.01E+12,4-Jan-05,12/26/04 0:00,DEN,Denver International Airport,,Property Damage,Checked Baggage,Luggage (all types including footlockers),$40.00 ,Denied,,Deny
+2.01E+12,5-Jan-05,2012/5/4 0:00,FLL,Ft. Lauderdale-Hollywood International,Continental Airlines,Passenger Property Loss,Checked Baggage,Other,$173.11 ,Approved,$173.11 ,Approve in Full
+2.01E+12,10-Jan-06,2011/7/5 0:00,PHX,Phoenix Sky Harbor International,Continental Airlines,Passenger Property Loss,Checked Baggage,Other,$214.95 ,Settled,$107.48 ,Settle
+2.01E+12,10-Jan-06,7/23/05 0:00,IAH,Houston - George Bush Intercontinental Airport,Continental Airlines,Property Damage,Checked Baggage,Luggage (all types including footlockers),$995.00 ,Settled,$50.00 ,Settle
+2.01E+12,11-Jan-06,12/25/06 0:00,FLO,Florence Regional,Delta Air Lines,Passenger Property Loss,Checked Baggage,Clothing - Shoes; belts; accessories; etc.,$230.00 ,Canceled,$0.00 ,
+2.01E+12,2-Jan-07,12/22/07 0:00,LAS,McCarran International,Alaska Airlines,Property Damage,Checked Baggage,Luggage (all types including footlockers),,Insufficient; one of the following items required: sum certain; statement of fact; signature; location of incident; and date.,,
+2.01E+12,3-Jan-07,10/14/06 0:00,IAH,Houston - George Bush Intercontinental Airport,Continental Airlines,Passenger Property Loss,Checked Baggage,Jewelry - Costume,$25.00 ,Approved,$25.00 ,Approve in Full
+2.01E+12,4-Jan-08,9/26/07 0:00,IAD,Washington Dulles International,UAL,Passenger Property Loss,Checked Baggage,Cosmetics - Perfume; toilet articles; medicines; soaps; etc.; Luggage (all types including footlockers); Other,$550.00 ,Settled,$332.35 ,Settle
+2.01E+12,8-Jan-09,12/19/08 0:00,MCO,Orlando International Airport,AirTran Airlines,Passenger Property Loss,Checkpoint,Watches - Expensive more than $100,$371.00 ,Settled,$241.15 ,Settle
+2.01E+12,8-Jan-09,12/26/08 0:00,AUS,Austin-Bergstrom International Airport,Southwest Airlines,Passenger Property Loss,Checked Baggage,Computer - Laptop,$1;047.53 ,Settled,$443.46 ,Settle
