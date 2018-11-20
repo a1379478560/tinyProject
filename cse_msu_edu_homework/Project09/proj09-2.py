@@ -61,8 +61,6 @@ def validate_word(word, stopwords):
     :param stopwords: A set of stop word read from given file.
     :return: A boolean value .
     '''
-    if word!=word.replace("-",""):
-        print(word)
     return word not in stopwords and word.isalpha()
 
 
@@ -74,7 +72,7 @@ def process_lyrics(lyrics, stopwords):
     :return: A set of word can be search.
     '''
     lyrics_word_set=set()
-    words=lyrics.split(" ")
+    words=lyrics.split()
     for word in words:
         tmp=word.lower()
         tmp=tmp.strip()
@@ -260,7 +258,8 @@ def main():
             continue
         songs_search_list=search_songs(songs_dict,set(words_list))
         print("There are {} songs containing the given words!".format(len(songs_search_list)))
-        print("{:<20s} {:<s}".format("Singer", "Song"))
+        if len(songs_search_list)>0:
+            print("{:<20s} {:<s}".format("Singer", "Song"))
         loop_num=5
         if len(songs_search_list)<5:
             loop_num=len(songs_search_list)
