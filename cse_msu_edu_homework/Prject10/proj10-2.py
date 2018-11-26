@@ -1,29 +1,45 @@
+###########################################################
+#  Programming Project 10
+#
+#  This is  a game named Checkers writen by python.
+#  This project contains a board class ,a piece class
+#   and  several funtions.
+#   when we run this program:
+#    initial a board object and several piece object.
+#    then the plaer chose a colot,two people (or a people and
+#     an AI player) took turns play it.
+#    when a player can't move any piece or don't have any piece,
+#     game over.
+###########################################################
+
 import tools
 import gameai as ai
 from checkers import Piece
 from checkers import Board
 
-"""
-    Write something about this program here.
-"""
 
 
 def indexify(position):
     """
-    Write something about this function here.
+    Indexify a string type position to a int type position.
+    :param position: A sting of position.
+    :return:A tuple of int of position.
     """
-    pos_map={'a':0,"b":1,"c":2,"d":3,"e":4,"f":5,"g":6,"h":7,"i":8,"j":9,"k":10,
-             "l":11,"m":12,"n":13,"o":14,"p":15,"q":16,"r":17,"s":18,"t":19,"u":20,
-             "v":21,"w":22,"x":23,"y":24,"z":25,}
-    return (pos_map[position[0]],int(position[1])-1)
+
+    position_str="abcdefghijklmnopqrstuvwxyz"
+    return (position_str.index(position[0]),int(position[1:])-1)
 
 
 def deindexify(row, col):
     """
-    Write something about this function here.
+    De indexify a tuple of position to a string type position.
+    :param row: A int of row index.
+    :param col:A int of col index.
+    :return:A string of positon.
     """
-    pos_map="abcdefghijklmnopqrstuvwxyz"   #########
-    return pos_map[row]+str(col+1)
+
+    position_str="abcdefghijklmnopqrstuvwxyz"
+    return position_str[row]+str(col+1)
 
 
 def initialize(board):
@@ -36,6 +52,7 @@ def initialize(board):
     rows, the placement patterns will be opposite of those of blacks.
     This must work for any even length board size.
     """
+
     row = col = board.get_length()
     initrows = (row // 2) - 1
     for r in range(row - 1, row - (initrows + 1), -1):
@@ -48,35 +65,44 @@ def initialize(board):
 
 def count_pieces(board):
     """
-    Write something about this function here.
+    Count the number of piece in a board object.
+    :param board: A board object.
+    :return: A tuple contains the number of black pieces and white pieces.
     """
-    black=0
-    white=0
-    length=board.get_length()
-    for i in range(length):
-        for j in range(length):
-            if board.get(i,j):
-                color=board.get(i,j).color()
-                if color=="black":
-                    black+=1
+
+    black_int=white_int=0
+    length_int=board.get_length()
+    for row in range(length_int):
+        for col in range(length_int):
+            if board.get(row,col):
+                color=board.get(row,col).color()
+                if color=="white":
+                    white_int += 1
                 else:
-                    white+=1
-    return (black,white)
+                    black_int += 1
+    res_list= (black_int,white_int)
+    return res_list
 
 
 def get_all_moves(board, color, is_sorted=False):
     """
-    Write something about this function here.
+    Get all moves a player can do.
+    :param board: A board object.
+    :param color: A string of the color of the player.
+    :param is_sorted: A boolean of if sort.
+    :return: A list of all moves.
     """
-    all_moves=[]
-    length = board.get_length()
-    for i in range(length):
-        for j in range(length):
-            if board.get(i,j) and board.get(i,j).color()==color:
-                moves=tools.get_moves(board,i,j,is_sorted)
-                for move in moves:
-                    all_moves.append((deindexify(i,j),move))
-    return all_moves
+
+    length_int = board.get_length()
+    all_moves_list = []
+    for row in range(length_int):
+        for col in range(length_int):
+            if board.get(row,col) :
+                if board.get(row,col).color()==color:
+                    moves_tuple=tools.get_moves(board,row,col,is_sorted)
+                    for move in moves_tuple:
+                        all_moves_list.append((deindexify(row,col),move))
+    return all_moves_list
 
 
 def sort_captures(all_captures, is_sorted=False):
@@ -90,22 +116,28 @@ def sort_captures(all_captures, is_sorted=False):
 
 def get_all_captures(board, color, is_sorted=False):
     """
-    Write something about this function here.
+    Get all captures a player can do.
+    :param board:A board object.
+    :param color:A string of the color of the player.
+    :param is_sorted:A boolean of if sort.
+    :return:A list of all captures.
     """
-    all_captures=[]
-    length=board.get_length()
-    for i in range(length):
-        for j in range(length):
-            if board.get(i,j):
-                if board.get(i,j).color()==color:
-                    if tools.get_captures(board, i, j, ):
-                        all_captures.extend(tools.get_captures(board,i,j,))
-    return sort_captures(all_captures,is_sorted)
+
+    all_captures_list=[]
+    length_int=board.get_length()
+    for row in range(length_int):
+        for col in range(length_int):
+            if board.get(row,col):
+                if board.get(row,col).color()==color:
+                    if tools.get_captures(board, row, col, ):
+                        all_captures_list.extend(tools.get_captures(board,row,col,))
+    sorted_captures_list=sort_captures(all_captures_list,is_sorted)
+    return sorted_captures_list
 
 
 def apply_move(board, move):
     """
-    Write something about this function here.
+    Apply a given move to a board object.
 
     Raise this exception below:
         raise RuntimeError("Invalid move, please type" \
@@ -116,105 +148,103 @@ def apply_move(board, move):
         b. the destination position move[1] is not in the moves list found
             from tools.get_moves() function.
     """
-    moves=tools.get_moves(board,indexify(move[0])[0],indexify(move[0])[1])
-    if move[1] not in moves:
+    row,col=indexify(move[0])[0],indexify(move[0])[1]
+    moves_list=tools.get_moves(board,row,col)
+    if not move[1] in moves_list:
         raise RuntimeError("Invalid move, please type" \
                            + " \'hints\' to get suggestions.")
-    board.place(*indexify(move[1]),board.get(*indexify(move[0])))       #########
-    board.remove(*indexify(move[0]))
-    if board.get(*indexify(move[1])).is_black() and move[1][0]=="h":  #check if need  turn king.
-        board.get(*indexify(move[1])).turn_king()
-    if board.get(*indexify(move[1])).is_white() and move[1][0]=="a":
-        board.get(*indexify(move[1])).turn_king()
+    board.place(indexify(move[1])[0],indexify(move[1])[1],board.get(indexify(move[0])[0],indexify(move[0])[1]))
+    board.remove(indexify(move[0])[0],indexify(move[0])[1])
+    if board.get(indexify(move[1])[0],indexify(move[1])[1]).is_black() and move[1][0]=="h":  #check if need  turn king.
+        board.get(indexify(move[1])[0],indexify(move[1])[1]).turn_king()
+    if board.get(indexify(move[1])[0],indexify(move[1])[1]).is_white() and move[1][0]=="a":
+        board.get(indexify(move[1])[0],indexify(move[1])[1]).turn_king()
 
 
 def apply_capture(board, capture_path):
     """
-    Write something about this function here.
+    Apply a given capture to a board object.
 
     Raise this exception below:
         raise RuntimeError("Invalid jump/capture, please type" \
                          + " \'hints\' to get suggestions.")
     If,
-        a. there is no jump found from any position in capture_path, i.e. use
+        a. there is no jump found from any position in capture_path, row.e. use
             tools.get_jumps() function to get all the jumps from a certain
             position in capture_path
         b. the destination position from a jump is not in the jumps list found
             from tools.get_jumps() function.
     """
-    for i in range(len(capture_path)-1):
-        jumps=tools.get_jumps(board,*indexify(capture_path[i]))
-        if not capture_path[i+1] in jumps:
-            print(capture_path)
-            print(capture_path[i])
+    for ii in range(len(capture_path)-1):
+        jumps_str=tools.get_jumps(board,*indexify(capture_path[ii]))
+        if not capture_path[ii+1] in jumps_str:
             raise RuntimeError("Invalid jump/capture, please type" \
                                + " \'hints\' to get suggestions.")
-        board.place(*indexify(capture_path[i+1]),board.get(*indexify(capture_path[i]))) #generate new piece.
-        board.remove(*indexify(capture_path[i]))       #remove origin piece.
-        board.remove((indexify(capture_path[i])[0]+indexify(capture_path[i+1])[0])//2,(indexify(capture_path[i])[1]+indexify(capture_path[i+1])[1])//2,)  # remove captured piece.
+        board.place(*indexify(capture_path[ii+1]),board.get(*indexify(capture_path[ii]))) #generate new piece.
+        board.remove(*indexify(capture_path[ii]))       #remove origin piece.
+        board.remove(int((indexify(capture_path[ii])[0]+indexify(capture_path[ii+1])[0])/2),int((indexify(capture_path[ii])[1]+indexify(capture_path[ii+1])[1])/2),)  # remove captured piece.
 
-        if board.get(*indexify(capture_path[i+1])).is_black() and capture_path[1][0]=="h":
-            board.get(*indexify(capture_path[1])).turn_king()
-        if board.get(*indexify(capture_path[i+1])).is_white() and capture_path[1][0]=="a":
-            board.get(*indexify(capture_path[1])).turn_king()
+        if board.get(*indexify(capture_path[ii+1])).is_black() and capture_path[ii+1][0]=="h":
+            board.get(*indexify(capture_path[ii+1])).turn_king()
+        if board.get(*indexify(capture_path[ii+1])).is_white() and capture_path[ii+1][0]=="a":
+            board.get(*indexify(capture_path[ii+1])).turn_king()
 
 
 def get_hints(board, color, is_sorted=False):
     """
-    Write something about this function here.
+    Get some help from program.
     """
-    jumps=get_all_captures(board,color,is_sorted)
-    if jumps:
-        return ([],jumps)               ###########
-    moves=get_all_moves(board,color,is_sorted)
-    return (moves,[])
+    jumps_list=get_all_captures(board,color,is_sorted)
+    moves_list=get_all_moves(board,color,is_sorted)
+    if jumps_list:
+        return ([],jumps_list)
+    return (moves_list,jumps_list)
 
 
 def get_winner(board, is_sorted=False):
     """
-    Write something about this function here.
+    To determine who is winner.
     """
-    black_moves=get_hints(board,"black",is_sorted)
-    white_moves=get_hints(board,"white",is_sorted)
-    if black_moves[0] or black_moves[1]:
-        if white_moves[0] or white_moves[1]:
-            pass
-        else:
-            return "black"
-    if white_moves[0] or white_moves[1]:
-        if black_moves[0] or black_moves[1]:
-            pass
-        else:
-            return "white"
-    black_count,white_count=count_pieces(board)
-    if black_count==1 and white_count==1:
-        length=board.get_length()
+    winner=""
+    white_hints_list=get_hints(board,"white",is_sorted)
+    black_hints_list=get_hints(board,"black",is_sorted)
+    if black_hints_list[0] or black_hints_list[1]:
+        if not (white_hints_list[0] or white_hints_list[1]):
+            winner= "black"
+
+    if white_hints_list[0] or white_hints_list[1]:
+        if not (black_hints_list[0] or black_hints_list[1]):
+            winner= "white"
+    black_count_int,white_count_int=count_pieces(board)
+    if black_count_int==1 and white_count_int==1:
+        length_int=board.get_length()
         king_count=0
-        for i in range(length):
-            for j in range(length):
-                if board.get(i,j):
-                    if board.get(i,j).is_king():
+        for row in range(length_int):
+            for col in range(length_int):
+                if board.get(row,col):
+                    if board.get(row,col).is_king():
                         king_count+=1
         if king_count==2:
-            return "draw"
+            winner ="draw"
 
-    if black_count==white_count:
-        return "draw"
-    if black_count>white_count:
-        return "black"
-    if black_count<white_count:
-        return "white"
-
+    if black_count_int>white_count_int:
+        winner= "black"
+    if black_count_int<white_count_int:
+        winner= "white"
+    if black_count_int==white_count_int:
+        winner= "draw"
+    return winner
 
 def is_game_finished(board, is_sorted=False):
     """
-    Write something about this function here.
+    To determine is thie game finished.
     """
+    finished_boolean=False
     if get_hints(board,"black",is_sorted)==([],[]):
-        return True
+        finished_boolean= True
     if get_hints(board,"white",is_sorted)==([],[]):
-        return True
-    return False
+        finished_boolean= True
+    return finished_boolean
 
 
 # Some error messages to save lines.
@@ -231,8 +261,8 @@ def game_play_human():
     Use this function to write the game_play_ai() function.
     """
     # UNCOMMENT THESE TWO LINES TO TEST ON MIMIR SUBMISSION
-    Piece.symbols = ['b', 'w']
-    Piece.symbols_king = ['B', 'W']
+    # Piece.symbols = ['b', 'w']
+    # Piece.symbols_king = ['B', 'W']
 
     prompt = "[{:s}'s turn] :> "
     print(tools.banner)
@@ -346,7 +376,6 @@ def game_play_ai():
     This function will be very similar to game_play_human().
     """
 
-    # UNCOMMENT THESE TWO LINES TO TEST ON MIMIR SUBMISSION
     Piece.symbols = ['b', 'w']
     Piece.symbols_king = ['B', 'W']
 
@@ -374,13 +403,13 @@ def game_play_ai():
             board.display(piece_count)
 
             if turn==opponent_color:   # start of AI
-                move = ai.get_next_move(board, turn)
-                print(move)
-                if type(move)==tuple:
-                    apply_move(board,move)
-                if type(move)==list:
-                    apply_capture(board,move)
+                next_move_list = ai.get_next_move(board, turn)
+                if type(next_move_list)==type((1,2)):
+                    apply_move(board,next_move_list)
+                if type(next_move_list)==type([1,2]):
+                    apply_capture(board,next_move_list)
                 turn = my_color if turn == opponent_color else opponent_color
+                print("\tblack played",str(next_move_list)+".")
                 continue
 
             # Get the command from user using input
@@ -395,9 +424,9 @@ def game_play_ai():
                 (moves, captures) = get_hints(board, turn, True)
                 if moves:
                     print("You have moves:")
-                    for i, move in enumerate(moves):
+                    for i, next_move_list in enumerate(moves):
                         print("\t{:d}: {:s} --> {:s}" \
-                              .format(i + 1, move[0], move[1]))
+                              .format(i + 1, next_move_list[0], next_move_list[1]))
                 if captures:
                     print("You have captures:")
                     for i, path in enumerate(captures):
@@ -436,7 +465,6 @@ def game_play_ai():
                 print("\t{:s} played {:s}.".format(turn, str(action)))
                 turn = my_color if turn == opponent_color else opponent_color
         except Exception as err:
-            raise #del
             print("Error:", err)
 
     # The loop is over.
@@ -457,8 +485,8 @@ def game_play_ai():
 
 
 def main():
-    game_play_human()
-    #game_play_ai()
+    #game_play_human()
+    game_play_ai()
 
 
 # main function, the program's entry point

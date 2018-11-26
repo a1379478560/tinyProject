@@ -1,6 +1,6 @@
 def add(a,b,c):
     print(a+b+c)
-
-a=([],[])
-if a==([],[]) :
-    print("a")
+strin="abcdefghijklmnopqrstuvwxyz"
+s=[1,2]
+s+=3
+print(s)

@@ -1,26 +1,42 @@
+###########################################################
+#  Programming Project 10
+#
+#  This is  a game named Checkers writen by python.
+#  This project contains a board class ,a piece class
+#   and  several funtions.
+#   when we run this program:
+#    initial a board object and several piece object.
+#    then the plaer chose a colot,two people (or a people and
+#     an AI player) took turns play it.
+#    when a player can't move any piece or don't have any piece,
+#     game over.
+###########################################################
+
 import tools
 import gameai as ai
 from checkers import Piece
 from checkers import Board
 
-"""
-    Write something about this program here.
-"""
 
 
 def indexify(position):
     """
-    Write something about this function here.
+    Indexify a string type position to a int type position.
+    :param position: A sting of position.
+    :return:A tuple of int of position.
     """
     pos_map={'a':0,"b":1,"c":2,"d":3,"e":4,"f":5,"g":6,"h":7,"i":8,"j":9,"k":10,
              "l":11,"m":12,"n":13,"o":14,"p":15,"q":16,"r":17,"s":18,"t":19,"u":20,
              "v":21,"w":22,"x":23,"y":24,"z":25,}
-    return (pos_map[position[0]],int(position[1])-1)
+    return (pos_map[position[0]],int(position[1:])-1)
 
 
 def deindexify(row, col):
     """
-    Write something about this function here.
+    De indexify a tuple of position to a string type position.
+    :param row: A int of row index.
+    :param col:A int of col index.
+    :return:A string of positon.
     """
     pos_map="abcdefghijklmnopqrstuvwxyz"   #########
     return pos_map[row]+str(col+1)
@@ -48,7 +64,9 @@ def initialize(board):
 
 def count_pieces(board):
     """
-    Write something about this function here.
+    Count the number of piece in a board object.
+    :param board: A board object.
+    :return: A tuple contains the number of black pieces and white pieces.
     """
     black=0
     white=0
@@ -66,7 +84,11 @@ def count_pieces(board):
 
 def get_all_moves(board, color, is_sorted=False):
     """
-    Write something about this function here.
+    Get all moves a player can do.
+    :param board: A board object.
+    :param color: A string of the color of the player.
+    :param is_sorted: A boolean of if sort.
+    :return: A list of all moves.
     """
     all_moves=[]
     length = board.get_length()
@@ -90,7 +112,11 @@ def sort_captures(all_captures, is_sorted=False):
 
 def get_all_captures(board, color, is_sorted=False):
     """
-    Write something about this function here.
+    Get all captures a player can do.
+    :param board:A board object.
+    :param color:A string of the color of the player.
+    :param is_sorted:A boolean of if sort.
+    :return:A list of all captures.
     """
     all_captures=[]
     length=board.get_length()
@@ -105,7 +131,7 @@ def get_all_captures(board, color, is_sorted=False):
 
 def apply_move(board, move):
     """
-    Write something about this function here.
+    Apply a given move to a board object.
 
     Raise this exception below:
         raise RuntimeError("Invalid move, please type" \
@@ -130,7 +156,7 @@ def apply_move(board, move):
 
 def apply_capture(board, capture_path):
     """
-    Write something about this function here.
+    Apply a given capture to a board object.
 
     Raise this exception below:
         raise RuntimeError("Invalid jump/capture, please type" \
@@ -159,7 +185,7 @@ def apply_capture(board, capture_path):
 
 def get_hints(board, color, is_sorted=False):
     """
-    Write something about this function here.
+    Get some help from program.
     """
     jumps=get_all_captures(board,color,is_sorted)
     if jumps:
@@ -170,7 +196,7 @@ def get_hints(board, color, is_sorted=False):
 
 def get_winner(board, is_sorted=False):
     """
-    Write something about this function here.
+    To determine who is winner.
     """
     black_moves=get_hints(board,"black",is_sorted)
     white_moves=get_hints(board,"white",is_sorted)
@@ -206,7 +232,7 @@ def get_winner(board, is_sorted=False):
 
 def is_game_finished(board, is_sorted=False):
     """
-    Write something about this function here.
+    To determine is thie game finished.
     """
     if get_hints(board,"black",is_sorted)==([],[]):
         return True
