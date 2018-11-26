@@ -378,6 +378,7 @@ def game_play_ai():
                 if type(move)==list:
                     apply_capture(board,move)
                 turn = my_color if turn == opponent_color else opponent_color
+                print("\tblack played",str(move)+".")
                 continue
 
             # Get the command from user using input
