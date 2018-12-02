@@ -1,0 +1,33 @@
+country_id,report_country,IDF region,Report Age,Report Gender,Report set,"Adults with diabetes (20-79) in 1,000s","Adults population (20-79) in 1,000s",Diabetes prevalence (20-79)
+1,Afghanistan,MENA,20-24,Female,Urban,6.786986809,442.6952889,1.53%
+1,Afghanistan,MENA,35-39,Female,Urban,17.8342586,237.2282986,7.52%
+1,Afghanistan,MENA,50-54,Female,Urban,21.71590376,117.2190779,18.53%
+1,Afghanistan,MENA,65-69,Female,Urban,14.60424365,57.45984578,25.42%
+1,Afghanistan,MENA,20-24,Male,Urban,2.699735922,474.4290265,0.57%
+1,Afghanistan,MENA,35-39,Male,Urban,14.85293952,262.9102938,5.65%
+1,Afghanistan,MENA,50-54,Male,Urban,23.05592289,126.7860692,18.18%
+1,Afghanistan,MENA,65-69,Male,Urban,11.71620506,51.73895043,22.64%
+11,Australia,WP,20-24,Female,Rural,0.192313479,82.40645821,0.23%
+11,Australia,WP,35-39,Female,Urban,11.7809161,733.0008553,1.61%
+11,Australia,WP,50-54,Female,Rural,5.219782425,81.66263568,6.39%
+11,Australia,WP,65-69,Female,Urban,83.81532989,554.1271943,15.13%
+11,Australia,WP,20-24,Male,Urban,1.55069007,764.0403008,0.20%
+11,Australia,WP,35-39,Male,Rural,1.424242975,84.15717505,1.69%
+11,Australia,WP,50-54,Male,Rural,6.533528877,81.3840891,8.03%
+11,Australia,WP,65-69,Male,Urban,92.79409084,542.2979459,17.11%
+61,Egypt,MENA,20-24,Female,Urban,60.63144343,1649.047606,3.68%
+61,Egypt,MENA,35-39,Female,Rural,180.2009606,1841.436241,9.79%
+61,Egypt,MENA,50-54,Female,Rural,256.8008618,1127.517153,22.78%
+61,Egypt,MENA,65-69,Female,Urban,251.5005649,477.6733374,52.65%
+61,Egypt,MENA,20-24,Male,Rural,53.52163034,2241.365577,2.39%
+61,Egypt,MENA,35-39,Male,Rural,153.9859396,1907.127745,8.07%
+61,Egypt,MENA,50-54,Male,Rural,185.1687348,1130.58865,16.38%
+61,Egypt,MENA,65-69,Male,Urban,159.297471,429.0783948,37.13%
+71,French Polynesia,WP,20-24,Female,Rural,0.643030467,5.226565102,12.30%
+71,French Polynesia,WP,35-39,Female,Rural,1.016426964,4.416690916,23.01%
+71,French Polynesia,WP,50-54,Female,Urban,1.6109404,5.04488449,31.93%
+71,French Polynesia,WP,65-69,Female,Urban,0.825208461,2.391442482,34.51%
+71,French Polynesia,WP,20-24,Male,Urban,0.504671843,7.007093706,7.20%
+71,French Polynesia,WP,35-39,Male,Rural,0.807244329,4.500776214,17.94%
+71,French Polynesia,WP,50-54,Male,Rural,1.287238575,4.363584412,29.50%
+71,French Polynesia,WP,65-69,Male,Urban,0.79258908,2.374719108,33.38%

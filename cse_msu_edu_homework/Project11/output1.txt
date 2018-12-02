@@ -1,0 +1,106 @@
+Welcome to this virtual pet game!
+Please input the species (dog or cat), name, gender (male / female), fur color of your pet, seperated by space
+ ---Example input:  [dog] [fluffy] [male] [white]
+ (Hit Enter to use default settings): dog rover male black
+(๑>◡<๑) : Hi master, my name is Rover.
+
+You can let your pet eat, drink, get a shower, get some sleep, or play with him or her by entering each of the following commands:
+ --- [feed] [drink] [shower] [sleep] [play]
+ You can also check the health status of your pet by entering:
+ --- [status].
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): status
+Energy      : [##################  ] 9.00/10
+Hunger      : [                    ] 0.00/10
+Loneliness  : [####                ] 2.00/10
+Smell       : [######              ] 3.00/10
+Thirst      : [##                  ] 1.00/10
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): status
+Energy      : [                    ] 0.00/10
+Hunger      : [####                ] 1.60/10
+Loneliness  : [                    ] 0.00/10
+Smell       : [####################]10.00/10
+Thirst      : [######              ] 2.60/10
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): shower
+( •̀ .̫ •́ )✧ : Thanks ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): drink
+How much drink ? 1 - 10 scale: 2
+(๑´ڡ`๑) : Tasty drink ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): feed
+How much food ? 1 - 10 scale: 4
+(๑´ڡ`๑) : Yummy!
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): status
+Energy      : [                    ] 0.00/10
+Hunger      : [                    ] 0.00/10
+Loneliness  : [                    ] 0.20/10
+Smell       : [                    ] 0.20/10
+Thirst      : [####                ] 1.80/10
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): status
+Energy      : [                    ] 0.00/10
+Hunger      : [####                ] 2.40/10
+Loneliness  : [                    ] 0.00/10
+Smell       : [####################]10.00/10
+Thirst      : [########            ] 4.20/10
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): shower
+( •̀ .̫ •́ )✧ : Thanks ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): status
+Energy      : [                    ] 0.00/10
+Hunger      : [##########          ] 4.80/10
+Loneliness  : [                    ] 0.00/10
+Smell       : [##################  ] 8.80/10
+Thirst      : [##############      ] 6.60/10
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): sleep
+୧(๑•̀⌄•́๑)૭✧ : What a beautiful day!
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): status
+Energy      : [##############      ] 7.00/10
+Hunger      : [############        ] 6.20/10
+Loneliness  : [##                  ] 0.70/10
+Smell       : [####################] 9.50/10
+Thirst      : [################    ] 8.00/10
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): shower
+( •̀ .̫ •́ )✧ : Thanks ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): play
+(ฅ^ω^ฅ) : Happy to have your company ~
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): status
+Energy      : [##                  ] 1.40/10
+Hunger      : [################    ] 7.80/10
+Loneliness  : [                    ] 0.00/10
+Smell       : [########            ] 4.40/10
+Thirst      : [####################] 9.60/10
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): q
+Bye ~

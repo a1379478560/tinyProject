@@ -1,0 +1,49 @@
+Welcome to this virtual pet game!
+Please input the species (dog or cat), name, gender (male / female), fur color of your pet, seperated by space
+ ---Example input:  [dog] [fluffy] [male] [white]
+ (Hit Enter to use default settings): rover dog black male
+Please input the species (dog or cat), name, gender (male / female), fur color of your pet, seperated by space
+ ---Example input:  [dog] [fluffy] [male] [white]
+ (Hit Enter to use default settings): cat princess female gold
+(๑>◡<๑) : Hi master, my name is Princess.
+
+You can let your pet eat, drink, get a shower, get some sleep, or play with him or her by entering each of the following commands:
+ --- [feed] [drink] [shower] [sleep] [play]
+ You can also check the health status of your pet by entering:
+ --- [status].
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): eat
+Invalid command.
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): feed
+How much food ? 1 - 10 scale: play
+Invalid input.
+How much food ? 1 - 10 scale: feed
+Invalid input.
+How much food ? 1 - 10 scale: play
+Invalid input.
+How much food ? 1 - 10 scale: play
+Invalid input.
+How much food ? 1 - 10 scale: feed
+Invalid input.
+How much food ? 1 - 10 scale: drink
+Invalid input.
+How much food ? 1 - 10 scale: 11
+Invalid input.
+How much food ? 1 - 10 scale: -1
+Invalid input.
+How much food ? 1 - 10 scale: 2
+Your pet is satisfied, no desire for sustenance now.
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): drink
+How much drink ? 1 - 10 scale: play
+Invalid input.
+How much drink ? 1 - 10 scale: 20
+Invalid input.
+How much drink ? 1 - 10 scale: 0
+Invalid input.
+How much drink ? 1 - 10 scale: 5
+Your pet is satisfied, no desire for sustenance now.
+
+[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): q
+Bye ~

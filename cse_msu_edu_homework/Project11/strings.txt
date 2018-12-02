@@ -1,0 +1,6 @@
+"Not edible"
+"Input not valid, please try again."
+"Invalid command."
+"Your pet is too energetic to fall sleep."
+"How much food ? 1 - 10 scale: "
+"Your pet is satisfied, no desire for sustenance now."
