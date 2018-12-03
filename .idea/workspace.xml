@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ccc97015-6f4b-4602-8cd2-c3726b0991dd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ccc97015-6f4b-4602-8cd2-c3726b0991dd" name="Default" comment="proj11 本地测试通过，并且已经添加了注释。">
       <change afterPath="$PROJECT_DIR$/300win/310win_2018126.xls" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/300win/310win_2018131.xls" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/500_com结果.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project08/diabetes_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project08/diabetes_data_small.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project08/diabetes_data_tiny.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/cse231_random.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/edible.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/input1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/input2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/output1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/output2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/strings.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11-2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/excel_cal_liming/cal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/excel_cal_liming/cal.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/excel_cal_liming/test.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/finance/Create Tables2.sql" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/finance/Data in Finance.pptx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/finance/Insert Data.sql" afterDir="false" />
@@ -107,16 +97,9 @@
       <change afterPath="$PROJECT_DIR$/非爬虫/比赛_GUI/scores.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/非爬虫/比赛_GUI/比赛_GUI.rar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/非爬虫/调亮度&amp;matlib图" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/spider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/spider.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/checkers.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/checkers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/examples.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/examples.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/gameai.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/gameai.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/play.in" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/play.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/play.out" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/play.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/proj10-2.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/proj10-2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/proj10.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/proj10.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project10/tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/cse_msu_edu_homework/Project11/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -136,7 +119,7 @@
     <SUITE FILE_PATH="coverage/spider$haocai138_com_shijiebei.coverage" NAME="haocai138_com_shijiebei Coverage Results" MODIFIED="1530371793617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$cal_pi.coverage" NAME="cal_pi Coverage Results" MODIFIED="1531025318143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/私活-代码讲解注释" />
     <SUITE FILE_PATH="coverage/spider$wmiControlScreen__1_.coverage" NAME="wmiControlScreen (1) Coverage Results" MODIFIED="1536124850800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/asd" />
-    <SUITE FILE_PATH="coverage/spider$proj11.coverage" NAME="proj11 Coverage Results" MODIFIED="1543757862822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cse_msu_edu_homework/Project11" />
+    <SUITE FILE_PATH="coverage/spider$proj11.coverage" NAME="proj11 Coverage Results" MODIFIED="1543817870787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cse_msu_edu_homework/Project11" />
     <SUITE FILE_PATH="coverage/spider$jiaoqiu.coverage" NAME="jiaoqiu Coverage Results" MODIFIED="1541725518212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/角球之家" />
     <SUITE FILE_PATH="coverage/spider$haocai138_com.coverage" NAME="haocai138_com Coverage Results" MODIFIED="1530368088131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$toutiaoWeixinetc__1_.coverage" NAME="toutiaoWeixinetc (1) Coverage Results" MODIFIED="1538236214217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/toutiaoWeixinEtc" />
@@ -156,8 +139,10 @@
     <SUITE FILE_PATH="coverage/spider$insertConfig.coverage" NAME="insertConfig Coverage Results" MODIFIED="1532319871717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/非爬虫/自动插入配置" />
     <SUITE FILE_PATH="coverage/spider$picMerge.coverage" NAME="picMerge Coverage Results" MODIFIED="1531804740605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/非爬虫/picMerge" />
     <SUITE FILE_PATH="coverage/spider$wmiControlScreen.coverage" NAME="wmiControlScreen Coverage Results" MODIFIED="1535698816595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/非爬虫" />
+    <SUITE FILE_PATH="coverage/spider$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1543769768114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/excel_cal_liming" />
     <SUITE FILE_PATH="coverage/spider$.coverage" NAME="模拟彩票倍投 Coverage Results" MODIFIED="1536635975159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/非爬虫" />
     <SUITE FILE_PATH="coverage/spider$2.coverage" NAME="2第三程序判断结果 Coverage Results" MODIFIED="1539099694380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/spider$cal.coverage" NAME="cal Coverage Results" MODIFIED="1543803193857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/excel_cal_liming" />
     <SUITE FILE_PATH="coverage/spider$checkers.coverage" NAME="checkers Coverage Results" MODIFIED="1543211120584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cse_msu_edu_homework/Prject10" />
     <SUITE FILE_PATH="coverage/spider$Unnamed__1_.coverage" NAME="Unnamed (1) Coverage Results" MODIFIED="1539091855095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/spider$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1527954051547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -176,81 +161,37 @@
     <SUITE FILE_PATH="coverage/spider$vlc.coverage" NAME="vlc Coverage Results" MODIFIED="1535683097352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages" />
     <SUITE FILE_PATH="coverage/spider$zhilian_cmd.coverage" NAME="zhilian_cmd Coverage Results" MODIFIED="1528282960875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$qttest__2_.coverage" NAME="qttest (2) Coverage Results" MODIFIED="1535619865543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/Program Files (x86)/VideoLAN/VLC" />
+    <SUITE FILE_PATH="coverage/spider$proj11_2.coverage" NAME="proj11-2 Coverage Results" MODIFIED="1543822765370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cse_msu_edu_homework/Project11" />
     <SUITE FILE_PATH="coverage/spider$proj06.coverage" NAME="proj06 Coverage Results" MODIFIED="1540224143180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Project06" />
     <SUITE FILE_PATH="coverage/spider$zhihu.coverage" NAME="zhihu Coverage Results" MODIFIED="1531654206611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/私活-代码讲解注释" />
     <SUITE FILE_PATH="coverage/spider$300win_com.coverage" NAME="300win_com Coverage Results" MODIFIED="1530887877382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spider$others__1_.coverage" NAME="others (1) Coverage Results" MODIFIED="1538201047642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/toutiaoWeixinEtc/func" />
     <SUITE FILE_PATH="coverage/spider$proj07.coverage" NAME="proj07 Coverage Results" MODIFIED="1540699489305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Project07" />
     <SUITE FILE_PATH="coverage/spider$test.coverage" NAME="test Coverage Results" MODIFIED="1543233914693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cse_msu_edu_homework/Prject10" />
-    <SUITE FILE_PATH="coverage/spider$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1543759973406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cse_msu_edu_homework/Project11" />
+    <SUITE FILE_PATH="coverage/spider$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1543820405466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cse_msu_edu_homework/Project11" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="spider" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file leaf-file-name="proj11-2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11-2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="198" column="65" selection-start-line="198" selection-start-column="65" selection-end-line="198" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="proj11.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="202" column="11" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="11" />
+            <state relative-caret-position="117">
+              <caret line="182" column="38" lean-forward="true" selection-start-line="194" selection-start-column="22" selection-end-line="194" selection-end-column="26" />
               <folding>
-                <element signature="n#!!doc" />
-                <element signature="e#0#33#0" expanded="true" />
-                <element signature="e#216#5973#0" />
-                <element signature="e#304#725#0" />
-                <element signature="e#769#1092#0" />
-                <element signature="e#1229#1275#0" />
-                <element signature="e#1317#1363#0" />
-                <element signature="e#1405#1451#0" />
-                <element signature="e#1490#1709#0" />
-                <element signature="e#2066#2634#0" />
-                <element signature="e#2598#2854#0" />
-                <element signature="e#2885#3125#0" />
-                <element signature="e#3160#3582#0" />
-                <element signature="e#2207#2892#0" />
-                <element signature="e#4373#5254#0" />
-                <element signature="e#3152#3832#0" />
-                <element signature="e#5959#6185#0" />
-                <element signature="e#7013#7247#0" />
-                <element signature="e#7304#10128#0" />
+                <element signature="e#786#6568#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/input1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="21" column="6" selection-start-line="21" selection-end-line="21" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="output1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/output1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edible.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/edible.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -267,9 +208,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bridg</find>
-      <find>Pre-Chorus</find>
-      <find>look</find>
       <find>ivy</find>
       <find>don</find>
       <find>lieslies</find>
@@ -297,6 +235,9 @@
       <find>pet is</find>
       <find>Not edible</find>
       <find>_species</find>
+      <find>ow much</find>
+      <find>print(type(food))</find>
+      <find>#####</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -305,9 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/非爬虫/模拟彩票倍投.py" />
-        <option value="$USER_HOME$/Documents/Tencent Files/619400536/FileRecv/moni.py" />
-        <option value="$PROJECT_DIR$/VIN查询车辆.py" />
         <option value="$PROJECT_DIR$/非爬虫/autoCopyUDiskFile.py" />
         <option value="$PROJECT_DIR$/toutiaoWeixinetc.py" />
         <option value="$PROJECT_DIR$/toutiaoWeixinEtc/toutiao.py" />
@@ -354,8 +292,11 @@
         <option value="$PROJECT_DIR$/cse_msu_edu_homework/Project11/strings.txt" />
         <option value="$PROJECT_DIR$/cse_msu_edu_homework/Project11/output1.txt" />
         <option value="$PROJECT_DIR$/cse_msu_edu_homework/Project11/output2.txt" />
+        <option value="$PROJECT_DIR$/excel_cal_liming/test.py" />
+        <option value="$PROJECT_DIR$/excel_cal_liming/cal.py" />
         <option value="$PROJECT_DIR$/cse_msu_edu_homework/Project11/test.py" />
         <option value="$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11.py" />
+        <option value="$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11-2.py" />
       </list>
     </option>
   </component>
@@ -374,8 +315,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="460" />
-    <option name="y" value="35" />
+    <option name="x" value="605" />
+    <option name="y" value="45" />
     <option name="width" value="1140" />
     <option name="height" value="1020" />
   </component>
@@ -419,18 +360,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Liu\PycharmProjects\spider\excel_cal_liming" />
       <recent name="C:\Users\Liu\PycharmProjects\spider\cse_msu_edu_homework" />
       <recent name="C:\Users\Liu\PycharmProjects\spider\非爬虫" />
       <recent name="C:\Users\Liu\PycharmProjects\spider\Project07" />
       <recent name="C:\Users\Liu\PycharmProjects\spider\test" />
-      <recent name="C:\Users\Liu\PycharmProjects\spider\足彩记录" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Liu\PycharmProjects\spider\cse_msu_edu_homework\Project11" />
+      <recent name="C:\Users\Liu\PycharmProjects\spider\excel_cal_liming" />
       <recent name="C:\Users\Liu\PycharmProjects\spider\cse_msu_edu_homework\Prject10" />
       <recent name="C:\Users\Liu\PycharmProjects\spider\cse_msu_edu_homework\Project09" />
       <recent name="C:\Users\Liu\PycharmProjects\spider\非爬虫" />
-      <recent name="C:\Users\Liu\PycharmProjects\spider\test" />
-      <recent name="C:\Users\Liu\PycharmProjects\spider\Project06" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -445,7 +386,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
+  <component name="RunManager" selected="Python.proj11-2">
     <configuration name="2第三程序判断结果" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="spider" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -503,6 +444,25 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="cal" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="spider" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/excel_cal_liming" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/excel_cal_liming/cal.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="fileDistribute" type="PythonConfigurationType" factoryName="Python">
       <module name="spider" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -522,7 +482,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="proj10-2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="proj11-2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="spider" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -530,31 +490,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cse_msu_edu_homework/Prject10" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cse_msu_edu_homework/Project11" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/proj10-2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="proj10" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="spider" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cse_msu_edu_homework/Prject10" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/proj10.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11-2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -598,7 +539,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="spider" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -606,12 +547,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cse_msu_edu_homework/Prject10" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/excel_cal_liming" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cse_msu_edu_homework/Prject10/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/excel_cal_liming/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -621,19 +562,19 @@
       <item itemvalue="Python.Unnamed (1)" />
       <item itemvalue="Python.Unnamed" />
       <item itemvalue="Python.fileDistribute" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.proj10" />
-      <item itemvalue="Python.proj10-2" />
       <item itemvalue="Python.test (1)" />
       <item itemvalue="Python.proj11" />
+      <item itemvalue="Python.cal" />
+      <item itemvalue="Python.test (2)" />
+      <item itemvalue="Python.proj11-2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.proj11-2" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.proj11" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.proj10" />
-        <item itemvalue="Python.proj10-2" />
+        <item itemvalue="Python.cal" />
+        <item itemvalue="Python.test (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -830,7 +771,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543236924067</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="proj11 本地测试通过，并且已经添加了注释。">
+      <created>1543760147735</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1543760147735</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -847,13 +795,13 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3281471" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50402147" side_tool="true" weight="0.46110326" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5053619" side_tool="true" weight="0.52758133" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32917318" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49668875" weight="0.73833096" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.34745762" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49597856" weight="0.62234795" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49463806" weight="0.301273" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32917318" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49187934" visible="true" weight="0.2969169" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49187934" visible="true" weight="0.32573727" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" x="453" y="178" width="492" height="473" id="SciView" order="4" weight="0.3297587" />
@@ -874,26 +822,26 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.50111854" side_tool="true" weight="0.24963924" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4906015" visible="true" weight="0.17560321" />
       <window_info id="Structure" order="1" sideWeight="0.5093985" side_tool="true" weight="0.22050938" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49668875" weight="0.36193448" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731904" visible="true" weight="0.18953323" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32956153" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3281471" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" side_tool="true" weight="0.3297587" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32956153" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50268096" side_tool="true" weight="0.29278642" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49668875" weight="0.36193448" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" x="453" y="178" width="492" height="473" id="SciView" order="4" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info active="true" anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.997006" />
-      <window_info id="Favorites" order="2" sideWeight="0.50111854" side_tool="true" weight="0.24963924" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32956153" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -951,7 +899,8 @@
     <MESSAGE value="Project10 程序部分基本完成，等下mimir测试过了就开始写注释和第二份" />
     <MESSAGE value="Project10 改进一点小bug" />
     <MESSAGE value="proj10 passed，并且已经添加了注释和第二份。" />
-    <option name="LAST_COMMIT_MESSAGE" value="proj10 passed，并且已经添加了注释和第二份。" />
+    <MESSAGE value="proj11 本地测试通过，并且已经添加了注释。" />
+    <option name="LAST_COMMIT_MESSAGE" value="proj11 本地测试通过，并且已经添加了注释。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -965,28 +914,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="26" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project06/ACS_tiny.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project06/DEC_00_SF4_QTP14_with_ann.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="65" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa1304.49007/base.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/itchat/components/register.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1121">
@@ -1196,9 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6460">
           <caret line="354" selection-start-line="354" selection-end-line="354" />
-          <folding>
-            <element signature="e#4505#4961#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1206,10 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8740">
           <caret line="469" column="23" selection-start-line="469" selection-start-column="23" selection-end-line="469" selection-end-column="23" />
-          <folding>
-            <element signature="e#550#562#0" expanded="true" />
-            <element signature="e#8901#9173#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1234,31 +1158,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/output2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-end-line="27" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/strings.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/input1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="21" column="6" selection-start-line="21" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/output1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1276,13 +1179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/edible.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1290,30 +1186,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/input1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="21" column="6" selection-start-line="21" selection-end-line="21" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/excel_cal_liming/cal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="53" column="34" lean-forward="true" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/excel_cal_liming/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/xlrd/book.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="697" selection-start-line="697" selection-end-line="697" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/output2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/output1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11-2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="198" column="65" selection-start-line="198" selection-start-column="65" selection-end-line="198" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cse_msu_edu_homework/Project11/proj11.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="202" column="11" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="11" />
+        <state relative-caret-position="117">
+          <caret line="182" column="38" lean-forward="true" selection-start-line="194" selection-start-column="22" selection-end-line="194" selection-end-column="26" />
           <folding>
-            <element signature="n#!!doc" />
-            <element signature="e#0#33#0" expanded="true" />
-            <element signature="e#216#5973#0" />
-            <element signature="e#304#725#0" />
-            <element signature="e#769#1092#0" />
-            <element signature="e#1229#1275#0" />
-            <element signature="e#1317#1363#0" />
-            <element signature="e#1405#1451#0" />
-            <element signature="e#1490#1709#0" />
-            <element signature="e#2066#2634#0" />
-            <element signature="e#2598#2854#0" />
-            <element signature="e#2885#3125#0" />
-            <element signature="e#3160#3582#0" />
-            <element signature="e#2207#2892#0" />
-            <element signature="e#4373#5254#0" />
-            <element signature="e#3152#3832#0" />
-            <element signature="e#5959#6185#0" />
-            <element signature="e#7013#7247#0" />
-            <element signature="e#7304#10128#0" />
+            <element signature="e#786#6568#0" />
           </folding>
         </state>
       </provider>

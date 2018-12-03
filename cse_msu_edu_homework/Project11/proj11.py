@@ -69,7 +69,7 @@ class Pet(object):
             if self.get_thirst_level()<2:
                 print("Your pet is satisfied, no desire for sustenance now.")
             else:
-                self._thirst=self.get_thirst_level()-liquid.get_quantity()   #########
+                self._thirst=self.get_thirst_level()-liquid.get_quantity()
                 if self.get_thirst_level()<0:
                     self._thirst=0
                 self._reply_to_master("drink")
@@ -84,21 +84,19 @@ class Pet(object):
             if self.get_hunger_level()<2:
                 print("Your pet is satisfied, no desire for sustenance now.")
             else:
-                self._hunger=self.get_hunger_level()-food.get_quantity()   #########
+                self._hunger=self.get_hunger_level()-food.get_quantity()
                 if self.get_hunger_level()<0:
                     self._hunger=0
                 self._reply_to_master("feed")
         else:
             print("Not edible")
-            print(type(food))
-            print(self._edible_items)
         self._update_status()
 
     def shower(self):
         # Pet shower.
         self._time_pass_by(4)
         self._smell=0
-        self._loneliness=self._loneliness-4 ########
+        self._loneliness=self._loneliness-4
         if self._loneliness<=0:
             self._loneliness=0
         self._reply_to_master("shower")
@@ -107,7 +105,7 @@ class Pet(object):
     def sleep(self):
         # Pet sleep.
         self._time_pass_by(7)
-        self._energy=self.get_energy_level()+7  #######
+        self._energy=self.get_energy_level()+7
         if self.get_energy_level()>10:
             self._energy=10
         self._reply_to_master("sleep")
@@ -116,7 +114,7 @@ class Pet(object):
     def play_with(self):
         # Play with Pet.
         self._time_pass_by(4)
-        self._energy=self.get_energy_level()-4   #######
+        self._energy=self.get_energy_level()-4
         self._loneliness=self._loneliness-4
         self._smell=self._smell+4
         if self._smell>10:
@@ -154,7 +152,7 @@ class Pet(object):
         # Show pet's status in a given format.
         # partially formatted string for your guidance
         #s = "{:<12s}: [{:<20s}]".format() + "{:5.2f}/{:2d}".format()
-        print("{:<12s}: [{:<20s}]".format("Energy","#"*round(self.get_energy_level())*2)  ########
+        print("{:<12s}: [{:<20s}]".format("Energy","#"*round(self.get_energy_level())*2)
               + "{:5.2f}/{:2d}".format(self.get_energy_level(),10))
         print("{:<12s}: [{:<20s}]".format("Hunger","#"*round(self.get_hunger_level())*2)
               + "{:5.2f}/{:2d}".format(self.get_hunger_level(),10))
@@ -207,8 +205,8 @@ def main():
 
     # error checking for user input
     while True:
-        pet = input(prompt)        #########
-        if pet=="":         ###########
+        pet = input(prompt)
+        if pet=="":
             pet="dog fluffy male white"
         pet=pet.strip()
         pet=pet.split()
@@ -218,7 +216,7 @@ def main():
             break
 
     # create a pet object
-    if pet[0]=="dog":          ########
+    if pet[0]=="dog":
         pet_instance=Dog(name=pet[1],gender=pet[2],color=pet[3])
     if pet[0]=="cat":
         pet_instance=Cat(name=pet[1],gender=pet[2],color=pet[3])
@@ -229,10 +227,10 @@ def main():
     prompt = "\n[feed] or [drink] or [shower] or [sleep] or [play] or [status] ? (q to quit): "
     while True:
         command=input(prompt)
-        command=command.strip() #######可以删掉，包括上一个strip
+        command=command.strip()
         if command=="feed":
             while True:
-                food_account = input("How much food ? 1 - 10 scale:")
+                food_account = input("How much food ? 1 - 10 scale: ")
                 if not food_account.isdigit():
                     print("Invalid input.")
                     continue
@@ -249,7 +247,7 @@ def main():
             pet_instance.play_with()
         elif command=="drink":
             while True:
-                food_account = input("How much drink ? 1 - 10 scale:")
+                food_account = input("How much drink ? 1 - 10 scale: ")
                 if not food_account.isdigit():
                     print("Invalid input.")
                     continue

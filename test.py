@@ -12,3 +12,4 @@ print("*"*80)
 for x in newstu :
     for y in newstu[x]:
         print(newstu[x][y].symmetric_difference(b[x][y]))
+
