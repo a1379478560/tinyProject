@@ -1,6 +1,7 @@
 import xlrd
 from xlutils.copy import copy
 import operator
+import os
 
 dbName="db-jzbz.xls"
 
@@ -23,6 +24,28 @@ def readxls(id):
     temp.pop(3)
     status += temp
     data["status"]=status
+    return data
+
+def readxls_auto(fileName):
+    data={}
+    status=[]
+    temp=[]
+    #fileName="14场/亚盘分析"+id+".xls"
+    wbk=xlrd.open_workbook(fileName)
+    sheet_read=wbk.sheet_by_index(0)
+    data["winner"]=sheet_read.cell_value(0,0)
+    data["ballNum"]=sheet_read.cell_value(1,3)
+    temp=sheet_read.row_values(1,0,7)
+    temp.pop(3)
+    status+=temp
+    temp = sheet_read.row_values(2, 0, 7)
+    temp.pop(3)
+    status += temp
+    temp = sheet_read.row_values(3, 0, 7)
+    temp.pop(3)
+    status += temp
+    data["status"]=status
+    data["result"]=sheet_read.cell_value(6,0)
     return data
 
 def selectdb(data):
@@ -73,27 +96,41 @@ def printres(data):
             print()
     print(data['ballNum'])
 
-if __name__ == '__main__':
-    while True:
-        id=input("请输入比赛场次>>>>：\n")
-        if  not id.isdigit():
-            print("输入有误，请输入数字！")
-            continue
 
-        data=readxls(id)
-        print(data)
-        #print(data['status'])
-        printres(data)
-        flag=selectdb(data)
-        if flag:
-            print(flag[0])
-            res=input("请输入新的分析结果，没有的话直接回车跳过：")
-            if res!="":
-                res_list=flag[0]
-                res_list.append(res)
-                writexls(data,res_list)
-        else:
-            res=input("这场重点分析，请输入分析结果：\n")
-            writexls(data,[res,])
-        print("本次↑↑查询结束，查询下一个请继续输入数字，否则直接关闭程序！")
-        print("*************************************************************")
+
+if __name__ == '__main__':
+    path = "autoAnalyze"
+    for fpathe, dirs, fs in os.walk(path):
+        for f in fs:
+            abspath=os.path.join(fpathe, f)
+            data=readxls_auto(abspath)
+            flag = selectdb(data)
+            if flag:
+                res_list = flag[0]
+                if data["result"] not in res_list:
+                    res_list.append(data["result"])
+                    writexls(data, res_list)
+            else:
+                writexls(data, [data["result"], ])
+    # while True:
+    #     id=input("请输入比赛场次>>>>：\n")
+    #     if  not id.isdigit():
+    #         print("输入有误，请输入数字！")
+    #         continue
+    #
+    #     data=readxls(id)
+    #     printres(data)
+    #     flag=selectdb(data)
+    #     if flag:
+    #         print(flag[0])
+    #         res=input("请输入新的分析结果，没有的话直接回车跳过：")
+    #         if res!="":
+    #             res_list=flag[0]
+    #             res_list.append(res)
+    #             writexls(data,res_list)
+    #     else:
+    #         res=input("这场重点分析，请输入分析结果：\n")
+    #         writexls(data,[res,])
+    #     print("本次↑↑查询结束，查询下一个请继续输入数字，否则直接关闭程序！")
+    #     print("*************************************************************")
+
