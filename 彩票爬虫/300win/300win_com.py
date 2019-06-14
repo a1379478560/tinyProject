@@ -30,12 +30,11 @@ def getxls(matchId):
         sheet1.write(raw, 1, float(tds[1].string))
         sheet1.write(raw, 2, float(tds[2].string))
         sheet1.write(raw, 3, float(tds[3].string))
-        sheet1.write(raw, 4, tds[4].string)
+        sheet1.write(raw, 4, round(float(tds[4].string[0:-1])/100,4))
         sheet1.write(raw, 5, float(tds[5].string))
         sheet1.write(raw, 6, tds[6].string)
         sheet1.write(raw, 7, float(tds[7].string))
         sheet1.write(raw, 8, float(tds[8].string))
-
 
     time.sleep(1)
     r2=requests.get(url2,headers=header)
@@ -47,7 +46,7 @@ def getxls(matchId):
         sheet2.write(raw, 1, float(tds[1].string))
         sheet2.write(raw, 2, float(tds[2].string))
         sheet2.write(raw, 3, float(tds[3].string))
-        sheet2.write(raw, 4, tds[4].string)
+        sheet2.write(raw, 4, round(float(tds[4].string[0:-1])/100,4))
         sheet2.write(raw, 5, float(tds[5].string))
         sheet2.write(raw, 6, tds[6].string)
         sheet2.write(raw, 7, float(tds[7].string))
@@ -82,7 +81,6 @@ def geturl(uri):
             browser.switch_to_window(handle)
             browser.close()
     return result_url
-
 if  __name__=='__main__':
     id=input('请输入要爬取的期号：\n')
     url='http://www.310win.com/buy/toto14.aspx?issueNum='+str(id)
