@@ -146,7 +146,7 @@ class win310():
                 team2_id=raw[5]
                 team1=self.team_id_to_name(team1_id,arrTeam)
                 team2=self.team_id_to_name(team2_id,arrTeam)
-                score=raw[6]
+                score=raw[6].replace("取消|取消|Cancel","取消").replace("|","_")
                 ret_lx2_list.append((lx2,match_time,team1,team2,score))
             except:    #处理附加赛
                 for x in raw:
@@ -157,7 +157,7 @@ class win310():
                         team2_id = x[5]
                         team1 = self.team_id_to_name(team1_id, arrTeam)
                         team2 = self.team_id_to_name(team2_id, arrTeam)
-                        score = x[6]
+                        score = x[6].replace("取消|取消|Cancel","取消").replace("|","_")
                         ret_lx2_list.append((lx2, match_time, team1, team2, score))
         return ret_lx2_list
     def team_id_to_name(self,team_id,arrTeam):
@@ -167,6 +167,10 @@ class win310():
         return -1
 
     def get_xls(self,l2x_tuple):
+        if "延后" in l2x_tuple[4] or "推迟" in l2x_tuple[4] or "取消" in l2x_tuple[4]:
+            return
+        if l2x_tuple[4]=="":
+            return
         url='http://www.310win.com/1x2/'+str(l2x_tuple[0])+'.html'
         browser = webdriver.PhantomJS() #需要已将phantomjs.exe放入python的Scripts文件夹下
         #browser = webdriver.Chrome(r'E:/chromedriver.exe')
