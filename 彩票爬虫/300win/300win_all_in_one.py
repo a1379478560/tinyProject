@@ -5,6 +5,7 @@ import time
 import xlwt
 from  bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -122,17 +123,20 @@ class win310():
         ret_lx2_list=[]
         #print(url)
         r=requests.get(url=url,headers=self.header)
-        pattern=re.compile(r'jh[[]"[G|R].*[]];')
+        pattern=re.compile(r'jh[[]"[G|R].*[]][]];')
         pattern_arrTeam=re.compile(r"arrTeam\s=\s.*;")
         l2xId_raw=pattern.findall(r.text)
         arrTeam=pattern_arrTeam.findall(r.text)[0]
         arrTeam=arrTeam.replace("arrTeam = ","")
         arrTeam=arrTeam.replace(";","")
         arrTeam=eval(arrTeam)
-        for x in l2xId_raw:
+        #print(l2xId_raw[8])
+        for i,x in enumerate(l2xId_raw):
             x_t=x.replace(";","")
-            tmp=re.sub(r'jh[[].*=\s',"",x_t)
+            tmp=re.sub(r'jh[[].*[]]\s=\s',"",x_t)
             tmp=tmp.replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,")
+            #print(i,tmp)
+            tmp=re.sub(r'<a.*</a>'," ",tmp)
             lx2_list+=eval(tmp)
         for raw in lx2_list:
             try:
@@ -168,6 +172,9 @@ class win310():
         #browser = webdriver.Chrome(r'E:/chromedriver.exe')
         browser.get(url)
         curent_page = browser.current_window_handle
+        Select(browser.find_element_by_id("sel_showType")).select_by_value("1")
+
+        Select(browser.find_element_by_id("sel_showType")).select_by_value("2")
         browser.find_element_by_xpath('//input[@name="chkall"]').click()  # click
         browser.find_element_by_xpath('//a[@onclick="exChange();return false;"]').click()
         handles = browser.window_handles
