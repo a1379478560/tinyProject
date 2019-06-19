@@ -131,13 +131,17 @@ class win310():
         arrTeam=arrTeam.replace(";","")
         arrTeam=eval(arrTeam)
         #print(l2xId_raw[8])
+        # print(len(l2xId_raw))
+        # print(l2xId_raw)
         for i,x in enumerate(l2xId_raw):
             x_t=x.replace(";","")
             tmp=re.sub(r'jh[[].*[]]\s=\s',"",x_t)
             tmp=tmp.replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,").replace(",,",",0,")
             #print(i,tmp)
-            tmp=re.sub(r'<a.*</a>'," ",tmp)
+            tmp=re.sub(r'<a.*?</a>'," ",tmp)
             lx2_list+=eval(tmp)
+            # print(tmp)
+            # print(eval(tmp))
         for raw in lx2_list:
             try:
                 lx2=raw[0]
