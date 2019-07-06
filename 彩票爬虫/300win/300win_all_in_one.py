@@ -27,6 +27,7 @@ class win310():
         self.match_url_js=""
         self.lx2ID_list=[]
         self.saishi_name=""
+        self.wait_retry=[]
     def chose_page(self):
         # TODO 重新写一下这块的逻辑吧，按照js的来
         arrArea=[]
@@ -181,8 +182,8 @@ class win310():
         browser.get(url)
         curent_page = browser.current_window_handle
         Select(browser.find_element_by_id("sel_showType")).select_by_value("1")
-
         Select(browser.find_element_by_id("sel_showType")).select_by_value("2")
+        time.sleep(1)
         browser.find_element_by_xpath('//input[@name="chkall"]').click()  # click
         browser.find_element_by_xpath('//a[@onclick="exChange();return false;"]').click()
         handles = browser.window_handles
@@ -206,6 +207,7 @@ class win310():
         file_name=file_name.replace(" ","_").replace(":","：")
         if "html&print=true" in xls_url:
             print("本场无比赛记录："+file_name)
+
             return
         with open(file_name,"w",encoding="gbk") as fp:
             r=requests.get(xls_url,headers=self.header)
@@ -219,6 +221,25 @@ class win310():
 win=win310()
 match_url=win.chose_page()
 match=win.get_match(match_url)
+
 for m in match:
-    win.get_xls(m)
+    try:
+        win.get_xls(m)
+    except:
+        print("爬取失败，等待重试：",m,)
+        win.wait_retry.append([m,3])
+    time.sleep(1)
+print("开始重抓取失败数据。。。")
+
+while win.wait_retry:
+    retry=win.wait_retry.pop(0)
+    if retry[1]<=0:
+        print("超过最大重试次数!!!!!!：",retry[0])
+        continue
+    try:
+        win.get_xls(retry[0])
+    except:
+        retry[1]-=1
+        win.wait_retry.append(retry)
+
 print("爬取完成！")
