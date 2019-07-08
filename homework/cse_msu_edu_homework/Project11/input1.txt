@@ -1,0 +1,25 @@
+dog rover male black
+status
+play
+play
+status
+shower
+drink
+2
+feed
+4
+status
+play
+play
+play
+status
+shower
+play
+play
+status
+sleep
+status
+shower
+play
+status
+q

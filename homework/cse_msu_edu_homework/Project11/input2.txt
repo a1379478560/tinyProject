@@ -1,0 +1,22 @@
+rover dog black male
+cat princess female gold
+eat
+feed
+1
+play
+drink
+3
+play
+play
+status
+feed
+drink
+11
+-1
+2
+drink
+play
+20
+0
+5
+q
